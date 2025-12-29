@@ -1,47 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <!--
-
-****************************************************************************
-*  Copyright (c) 2024,  Skyline Communications NV  All Rights Reserved.    *
-****************************************************************************
-
-By using this driver, you expressly agree with the usage terms and
-conditions set out below.
-This driver and all related materials are protected by copyrights and
-other intellectual property rights that exclusively belong
-to Skyline Communications.
-
-A user license granted for this driver is strictly for personal use only.
-This driver may not be used in any way by anyone without the prior
-written consent of Skyline Communications. Any sublicensing of this
-driver is forbidden.
-
-Any modifications to this driver by the user are only allowed for
-personal use and within the intended purpose of the driver,
-and will remain the sole responsibility of the user.
-Skyline Communications will not be responsible for any damages or
-malfunctions whatsoever of the driver resulting from a modification
-or adaptation by the user.
-
-The content of this driver is confidential information.
-The user hereby agrees to keep this confidential information strictly
-secret and confidential and not to disclose or reveal it, in whole
-or in part, directly or indirectly to any person, entity, organization
-or administration without the prior written consent of
-Skyline Communications.
-
-Any inquiries can be addressed to:
-
-	Skyline Communications NV
-	Ambachtenstraat 33
-	B-8870 Izegem
-	Belgium
-	Tel.	: +32 51 31 35 69
-	Fax.	: +32 51 31 01 29
-	E-mail	: info@skyline.be
-	Web		: www.skyline.be
-	Contact	: Ben Vandenberghe
-
+***********************************************
+*  Copyright (c), Skyline Communications NV.  *
+***********************************************
 -->
 
 <Protocol xmlns="http://www.skyline.be/protocol">
@@ -53,16 +14,16 @@ Any inquiries can be addressed to:
 	<Vendor>Skyline Communications</Vendor>
 	<VendorOID>1.3.6.1.4.1.8813.2.0</VendorOID>
 	<DeviceOID>0</DeviceOID>
+	<SNMP includepages="true">auto</SNMP>
 	<ElementType>Example</ElementType>
 	<Type relativeTimers="true">virtual</Type>
 	<Display defaultPage="General" pageOrder="General;Send InterApp;Inter-App Communication" wideColumnPages=""/>
-	<SNMP includepages="true">auto</SNMP>
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
 		<MinimumRequiredVersion>10.1.0.0 - 9966</MinimumRequiredVersion>
 	</Compliancies>
-	
+
 	<Params>
 		<Param id="2">
 			<Name>AfterStartup</Name>
@@ -74,7 +35,7 @@ Any inquiries can be addressed to:
 			<Description>Mark Rows as Confirmed</Description>
 			<Type>dummy</Type>
 		</Param>
-		
+
 		<Param id="11">
 			<Name>CommandBody</Name>
 			<Description>Command Body</Description>
@@ -85,7 +46,7 @@ Any inquiries can be addressed to:
 				<LengthType>next param</LengthType>
 			</Interprete>
 		</Param>
-		
+
 		<Param id="100">
 			<Name>SendInterApp</Name>
 			<Type>write</Type>
@@ -430,7 +391,7 @@ Any inquiries can be addressed to:
 				</Discreets>
 			</Measurement>
 		</Param>
-		
+
 		<Param id="990">
 			<Name>MyTable_ContextMenu</Name>
 			<Description>Context Menu for My Table</Description>
@@ -587,7 +548,7 @@ Any inquiries can be addressed to:
 				</Discreets>
 			</Measurement>
 		</Param>
-		
+
 		<Param id="9000000" trending="false">
 			<Name>IAC_Receiver</Name>
 			<Description>Inter App Receiver</Description>
@@ -642,7 +603,7 @@ Any inquiries can be addressed to:
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
+
 		<Param id="9000100">
 			<Name>IAC_Messages</Name>
 			<Description>IAC_Messages</Description>
@@ -826,17 +787,18 @@ Any inquiries can be addressed to:
 			</Measurement>
 		</Param>
 	</Params>
-	
+
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
+		<QAction id="2" name="After Startup QAction" encoding="csharp" triggers="2" />
+		
 		<QAction id="10" name="Mark rows as confirmed" encoding="csharp" triggers="10" />
 		<QAction id="100" name="Send InterApp Message" encoding="csharp" triggers="100" />
 		<QAction id="990" name="My Table - ContextMenu" encoding="csharp" triggers="990" />
-		
+
 		<QAction id="9000000" name="Process Incoming InterApp Messages" encoding="csharp" triggers="9000000"/>
-		<QAction id="2" name="After Startup QAction" encoding="csharp" triggers="2" />
 	</QActions>
-	
+
 	<Groups>
 		<Group id="1">
 			<Name>After Startup</Name>
@@ -863,7 +825,7 @@ Any inquiries can be addressed to:
 			</Content>
 		</Group>
 	</Groups>
-	
+
 	<Triggers>
 		<Trigger id="1">
 			<Name>After Startup</Name>
@@ -882,7 +844,7 @@ Any inquiries can be addressed to:
 			</Content>
 		</Trigger>
 	</Triggers>
-	
+
 	<Actions>
 		<Action id="1">
 			<Name>After Startup Group</Name>
@@ -905,7 +867,7 @@ Any inquiries can be addressed to:
 			<Type>execute next</Type>
 		</Action>
 	</Actions>
-	
+
 	<Timers>
 	</Timers>
 
