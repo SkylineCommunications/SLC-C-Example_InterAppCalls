@@ -17,7 +17,7 @@
 	<SNMP includepages="true">auto</SNMP>
 	<ElementType>Example</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;Inter-App Communication;Send Inter-App" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;Send Inter-App;----------;Inter-App Communication" wideColumnPages=""/>
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
@@ -71,7 +71,7 @@
 				<Type width="110">button</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Send...</Display>
+						<Display>Send</Display>
 						<Value>1</Value>
 					</Discreet>
 				</Discreets>
@@ -606,7 +606,7 @@
 		
 		<Param id="9000100">
 			<Name>IAC_Messages</Name>
-			<Description>IAC_Messages</Description>
+			<Description>Inter-App Messages</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0" options=";volatile">
 				<ColumnOption idx="0" pid="9000101" type="retrieved" options="" />
@@ -636,7 +636,7 @@
 		</Param>
 		<Param id="9000101" trending="false">
 			<Name>IAC_MessagesGuid</Name>
-			<Description>GUID [IDX] (IAC_Messages)</Description>
+			<Description>GUID [IDX] (Inter-App Messages)</Description>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
 			</Information>
@@ -655,7 +655,7 @@
 		</Param>
 		<Param id="9000102" trending="false">
 			<Name>IAC_MessagesStatus</Name>
-			<Description>Status (IAC_Messages)</Description>
+			<Description>Status (Inter-App Messages)</Description>
 			<Information>
 				<Subtext>This is the current status of the InterApp Call.</Subtext>
 			</Information>
@@ -688,7 +688,7 @@
 		</Param>
 		<Param id="9000103" trending="false">
 			<Name>IAC_MessagesRequest</Name>
-			<Description>Request (IAC_Messages)</Description>
+			<Description>Request (Inter-App Messages)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>The incoming InterApp message that triggered this.</Subtext>
@@ -707,7 +707,7 @@
 		</Param>
 		<Param id="9000104" trending="false">
 			<Name>IAC_MessagesRequestType</Name>
-			<Description>Request Type (IAC_Messages)</Description>
+			<Description>Request Type (Inter-App Messages)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the type of the request message from the InterApp Call.</Subtext>
@@ -726,7 +726,7 @@
 		</Param>
 		<Param id="9000105" trending="false">
 			<Name>IAC_MessagesResponse</Name>
-			<Description>Response (IAC_Messages)</Description>
+			<Description>Response (Inter-App Messages)</Description>
 			<Information>
 				<Subtext>This is the return message for the InterApp Call.</Subtext>
 			</Information>
@@ -745,7 +745,7 @@
 		</Param>
 		<Param id="9000106" trending="false">
 			<Name>IAC_MessagesResponseType</Name>
-			<Description>Response Type (IAC_Messages)</Description>
+			<Description>Response Type (Inter-App Messages)</Description>
 			<Information>
 				<Subtext>This is the type of the response message for the InterApp Call. This type is used to know what return messages needs to be made.</Subtext>
 			</Information>
@@ -769,7 +769,7 @@
 		</Param>
 		<Param id="9000107" trending="false">
 			<Name>IAC_MessagesInfo</Name>
-			<Description>Info (IAC_Messages)</Description>
+			<Description>Info (Inter-App Messages)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>Extra info used to match incoming responses with the InterApp message.</Subtext>

@@ -245,7 +245,7 @@ public static class Parameter
 }
 public class WriteParameters
 {
-	/// <summary>PID: 1000  | Type: write | DISCREETS: Send... = 1</summary>
+	/// <summary>PID: 1000  | Type: write | DISCREETS: Send = 1</summary>
 	public System.Object Sendinterapp {get { return Protocol.GetParameter(1000); }set { Protocol.SetParameter(1000, value); }}
 	/// <summary>PID: 1051  | Type: write</summary>
 	public System.Object Element {get { return Protocol.GetParameter(1051); }set { Protocol.SetParameter(1051, value); }}
@@ -341,9 +341,9 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Commandbody_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
 	/// <summary>PID: 11  | Type: read</summary>
 	public System.Object Commandbody {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 1000  | Type: write | DISCREETS: Send... = 1</summary>
+	/// <summary>PID: 1000  | Type: write | DISCREETS: Send = 1</summary>
 	public System.Object Sendinterapp_1000 {get { return GetParameter(1000); }set { SetParameter(1000, value); }}
-	/// <summary>PID: 1000  | Type: write | DISCREETS: Send... = 1</summary>
+	/// <summary>PID: 1000  | Type: write | DISCREETS: Send = 1</summary>
 	public System.Object Sendinterapp {get { return Write.Sendinterapp; }set { Write.Sendinterapp = value; }}
 	/// <summary>PID: 1001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
