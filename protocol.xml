@@ -21,7 +21,7 @@
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
-		<MinimumRequiredVersion>10.1.0.0 - 9966</MinimumRequiredVersion>
+		<MinimumRequiredVersion>10.3.0.0 - 12752</MinimumRequiredVersion>
 	</Compliancies>
 
 	<Params>
@@ -129,6 +129,7 @@
 		</Param>
 		<Param id="102" trending="false">
 			<Name>Element_DiscreetList</Name>
+			<Description>Element Discreet List</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -195,6 +196,7 @@
 		</Param>
 		<Param id="104" trending="false">
 			<Name>MessageType_DiscreetList</Name>
+			<Description>Message Type Discreet List</Description>
 			<Type>read</Type>
 			<Interprete>
 				<RawType>other</RawType>
@@ -322,8 +324,8 @@
 			<Information>
 			</Information>
 			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
 			<Display>
@@ -359,8 +361,8 @@
 			<Description>My Discreet Value</Description>
 			<Type>write</Type>
 			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
 				<LengthType>next param</LengthType>
 			</Interprete>
 			<Display>
@@ -550,8 +552,8 @@
 		</Param>
 
 		<Param id="9000000" trending="false">
-			<Name>IAC_Receiver</Name>
-			<Description>Inter App Receiver</Description>
+			<Name>IAC_Generic_Receiver</Name>
+			<Description>Generic Inter App Receiver</Description>
 			<Information>
 				<Subtext>Contains the raw serialized InterApp Command (InterAppCall or Message) sent from an external source.</Subtext>
 			</Information>
@@ -577,8 +579,8 @@
 			</Measurement>
 		</Param>
 		<Param id="9000001" trending="false">
-			<Name>IAC_Response</Name>
-			<Description>Inter App Return</Description>
+			<Name>IAC_Generic_Response</Name>
+			<Description>Generic Inter App Responder</Description>
 			<Information>
 				<Subtext>Contains the raw serialized Message that serves as a response to an external source.</Subtext>
 			</Information>
@@ -808,6 +810,7 @@
 				<Action>2</Action>
 			</Content>
 		</Group>
+		
 		<Group id="10">
 			<Name>Mark Rows as Confirmed</Name>
 			<Description>Mark Rows as Confirmed</Description>
@@ -836,6 +839,7 @@
 				<Id>1</Id>
 			</Content>
 		</Trigger>
+		
 		<Trigger id="11">
 			<Name>Start Send Command</Name>
 			<Type>action</Type>
@@ -856,6 +860,7 @@
 			<Type>run actions</Type>
 			<On id="2">parameter</On>
 		</Action>
+		
 		<Action id="10">
 			<Name>Mark Rows as Confirmed</Name>
 			<On id="10">parameter</On>

@@ -50,14 +50,14 @@ public static class Parameter
 	public const int mydiscreetvalue = 107;
 	/// <summary>PID: 9000000 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int iac_receiver_9000000 = 9000000;
+	public const int iac_generic_receiver_9000000 = 9000000;
 	/// <summary>PID: 9000000 | Type: read</summary>
-	public const int iac_receiver = 9000000;
+	public const int iac_generic_receiver = 9000000;
 	/// <summary>PID: 9000001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int iac_response_9000001 = 9000001;
+	public const int iac_generic_response_9000001 = 9000001;
 	/// <summary>PID: 9000001 | Type: read</summary>
-	public const int iac_response = 9000001;
+	public const int iac_generic_response = 9000001;
 	public class Write
 	{
 		/// <summary>PID: 100 | Type: write</summary>
@@ -306,10 +306,10 @@ public interface SLProtocolExt : SLProtocol
 	object Mytablemystringcolumn { get; set; }
 	object Mytablemydiscreetcolumn_1004 { get; set; }
 	object Mytablemydiscreetcolumn { get; set; }
-	object Iac_receiver_9000000 { get; set; }
-	object Iac_receiver { get; set; }
-	object Iac_response_9000001 { get; set; }
-	object Iac_response { get; set; }
+	object Iac_generic_receiver_9000000 { get; set; }
+	object Iac_generic_receiver { get; set; }
+	object Iac_generic_response_9000001 { get; set; }
+	object Iac_generic_response { get; set; }
 	object Iac_messagesguid_9000101 { get; set; }
 	object Iac_messagesguid { get; set; }
 	object Iac_messagesstatus_9000102 { get; set; }
@@ -421,14 +421,14 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Mytablemydiscreetcolumn {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
 	/// <summary>PID: 9000000  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Iac_receiver_9000000 {get { return GetParameter(9000000); }set { SetParameter(9000000, value); }}
+	public System.Object Iac_generic_receiver_9000000 {get { return GetParameter(9000000); }set { SetParameter(9000000, value); }}
 	/// <summary>PID: 9000000  | Type: read</summary>
-	public System.Object Iac_receiver {get { return GetParameter(9000000); }set { SetParameter(9000000, value); }}
+	public System.Object Iac_generic_receiver {get { return GetParameter(9000000); }set { SetParameter(9000000, value); }}
 	/// <summary>PID: 9000001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Iac_response_9000001 {get { return GetParameter(9000001); }set { SetParameter(9000001, value); }}
+	public System.Object Iac_generic_response_9000001 {get { return GetParameter(9000001); }set { SetParameter(9000001, value); }}
 	/// <summary>PID: 9000001  | Type: read</summary>
-	public System.Object Iac_response {get { return GetParameter(9000001); }set { SetParameter(9000001, value); }}
+	public System.Object Iac_generic_response {get { return GetParameter(9000001); }set { SetParameter(9000001, value); }}
 	/// <summary>PID: 9000101  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Iac_messagesguid_9000101 {get { return GetParameter(9000101); }set { SetParameter(9000101, value); }}
