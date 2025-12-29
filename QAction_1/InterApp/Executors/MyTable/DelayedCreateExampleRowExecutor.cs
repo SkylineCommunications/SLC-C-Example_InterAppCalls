@@ -13,11 +13,13 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 	using Skyline.DataMiner.Scripting;
 	using Skyline.Protocol.Tables;
 
-	public class DelayedCreateExampleRowExecutor : SimpleMessageExecutor<GenericInterAppMessage<DelayedCreateExampleRow>>
+	public class DelayedCreateExampleRowExecutor
+		: SimpleMessageExecutor<GenericInterAppMessage<DelayedCreateExampleRow>>
 	{
 		private readonly DelayedCreateExampleRowResult result;
 
-		public DelayedCreateExampleRowExecutor(GenericInterAppMessage<DelayedCreateExampleRow> message) : base(message)
+		public DelayedCreateExampleRowExecutor(GenericInterAppMessage<DelayedCreateExampleRow> message)
+			: base(message)
 		{
 			result = new DelayedCreateExampleRowResult
 			{
@@ -45,7 +47,7 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 				Info = id,
 			}.SaveToProtocol(protocol);
 
-			// Mimic for example setting a http body and triggering a group.
+			// Mimic for example setting a HTTP body and triggering a group.
 			protocol.SetParameter(Parameter.commandbody, JsonConvert.SerializeObject(Message.Data.ExampleData));
 			protocol.CheckTrigger(11);
 

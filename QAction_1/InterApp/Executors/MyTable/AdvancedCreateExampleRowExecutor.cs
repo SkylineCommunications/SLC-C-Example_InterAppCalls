@@ -28,8 +28,9 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 		// Step 2, Is always executed
 		public override void Parse()
 		{
-			// If you need to parse, some of the data you can do this here.
-			// For example a property id in the following format: {AgentID}/{ElementID}
+			/* If you need to parse, some of the data you can do this here.
+			 * For example a property id in the following format: {AgentID}/{ElementID}
+			 */
 
 			// We are going to use this to start building our response message. But you could do this in any of the methods.
 			result = new AdvancedCreateExampleRowResult
@@ -61,11 +62,12 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 		// Step 4, Only if the validate was successful
 		public override void Modify()
 		{
-			// Here you can modify the InterApp Call into something the device can understand.
-			// For example the device wants an xml. You can create that object here.
+			/* Here you can modify the InterApp Call into something the device can understand.
+			 * For example the device wants an XML. You can create that object here.
+			 */
 		}
 
-		// Step 5, Only if the validate was successfull
+		// Step 5, Only if the validate was successful
 		public override void DataSets(object dataDestination)
 		{
 			// Here you do the actual set, in our case this is the adding of a new row to the Example Table.

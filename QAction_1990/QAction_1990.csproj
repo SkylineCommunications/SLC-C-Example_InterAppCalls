@@ -6,6 +6,8 @@
     <Copyright>© Skyline Communications</Copyright>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <LangVersion>7.3</LangVersion>
+    <RootNamespace>QAction_1990</RootNamespace>
+    <AssemblyName>QAction_1990</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\QAction_1\QAction_1.csproj" />

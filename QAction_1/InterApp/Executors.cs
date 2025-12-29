@@ -13,9 +13,9 @@ namespace Skyline.Protocol.InterApp
 	{
 		private static readonly IDictionary<Type, Type> InternalMessageToExecutorMapping = new Dictionary<Type, Type>
 		{
-			{ typeof(GenericInterAppMessage<SimpleCreateExampleRow>), typeof(SimpleCreateExampleRowExecutor) },
+			{ typeof(GenericInterAppMessage<SimpleCreateExampleRow>),   typeof(SimpleCreateExampleRowExecutor) },
 			{ typeof(GenericInterAppMessage<AdvancedCreateExampleRow>), typeof(AdvancedCreateExampleRowExecutor) },
-			{ typeof(GenericInterAppMessage<DelayedCreateExampleRow>), typeof(DelayedCreateExampleRowExecutor) },
+			{ typeof(GenericInterAppMessage<DelayedCreateExampleRow>),  typeof(DelayedCreateExampleRowExecutor) },
 		};
 
 		public static IDictionary<Type, Type> MessageToExecutorMapping => InternalMessageToExecutorMapping;

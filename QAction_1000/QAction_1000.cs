@@ -1,14 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
 
 using Newtonsoft.Json;
 
 using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls;
 using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.InterAppMessages;
 using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.Messages.MyTable;
-using Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle;
 using Skyline.DataMiner.Scripting;
 
 /// <summary>

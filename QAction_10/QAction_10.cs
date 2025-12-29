@@ -23,9 +23,10 @@ public static class QAction
 	{
 		try
 		{
-			// Get simulated device response.
-			// which in our case is just the same message we send out, but would normally be a response on a command.
-			// for example the response of a HTTP Post request.
+			/* Get simulated device response.
+			 * which in our case is just the same message we send out, but would normally be a response on a command.
+			 * for example the response of a HTTP Post request.
+			 */
 			var raw = Convert.ToString(protocol.GetParameter(Parameter.commandbody));
 			if(String.IsNullOrEmpty(raw))
 			{

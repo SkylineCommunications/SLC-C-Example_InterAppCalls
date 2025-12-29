@@ -30,7 +30,7 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 			var newId = Guid.NewGuid().ToString();
 			if (!protocol.Exists(Parameter.Mytable.tablePid, newId))
 			{
-				// Mimic for example setting a http body and triggering a group.
+				// Mimic for example setting a HTTP body and triggering a group.
 				Message.Data.ExampleData.Instance = newId;
 				protocol.SetParameter(Parameter.commandbody, JsonConvert.SerializeObject(Message.Data.ExampleData));
 				protocol.CheckTrigger(11);
