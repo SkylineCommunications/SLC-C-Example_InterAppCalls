@@ -18,8 +18,9 @@ public static class QAction
     {
         try
         {
-            var elements = protocol.GetDms().GetElements().Where(element => element.Protocol.Name == "Skyline Communications Example InterApp Calls");
+            var elements = protocol.GetDms().GetElements().Where(element => element.Protocol.Name == protocol.ProtocolName);
             protocol.SetParameter(Parameter.element_discreetlist, String.Join(";", elements.Where(element => element.Name != protocol.ElementName).Select(element => element.Name)));
+
             protocol.SetParameter(Parameter.messagetype_discreetlist, String.Join(";", Types.KnownTypes.Where(type => !type.Name.EndsWith("Result")).Select(type => type.Name)));
         }
         catch (Exception ex)
