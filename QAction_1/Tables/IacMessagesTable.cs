@@ -10,6 +10,7 @@ namespace Skyline.Protocol.Tables
 	using Skyline.DataMiner.Core.InterAppCalls.Common.Serializing;
 	using Skyline.DataMiner.Net.Helper;
 	using Skyline.DataMiner.Scripting;
+	using Skyline.DataMiner.Utils.Protocol.Extension;
 
 	using SLNetMessages = Skyline.DataMiner.Net.Messages;
 
@@ -103,7 +104,7 @@ namespace Skyline.Protocol.Tables
 				Parameter.Iac_messages.Idx.iac_messagesresponsetype_9000106,
 				Parameter.Iac_messages.Idx.iac_messagesinfo_9000107
 			};
-			object[] iac_messages = (object[])protocol.NotifyProtocol((int)SLNetMessages.NotifyType.NT_GET_TABLE_COLUMNS, Parameter.Iac_messages.tablePid, iAC_MessagesIdx);
+			object[] iac_messages = (object[])protocol.GetColumns(Parameter.Iac_messages.tablePid, iAC_MessagesIdx);
 			object[] gUIDIDX = (object[])iac_messages[0];
 			object[] status = (object[])iac_messages[1];
 			object[] request = (object[])iac_messages[2];

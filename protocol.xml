@@ -8,7 +8,7 @@
 <Protocol xmlns="http://www.skyline.be/protocol">
 	<Name>Skyline Example InterAppCalls</Name>
 	<Description>Skyline Example - InterApp Calls</Description>
-	<Version>1.0.0.1</Version>
+	<Version>5.0.0.1</Version>
 	<IntegrationID>DMS-DRV-9029</IntegrationID>
 	<Provider>Skyline Communications</Provider>
 	<Vendor>Skyline Example</Vendor>
@@ -555,7 +555,7 @@
 			<Name>IAC_Generic_Receiver</Name>
 			<Description>Generic Inter App Receiver</Description>
 			<Information>
-				<Subtext>Contains the raw serialized InterApp Command (InterAppCall or Message) sent from an external source.</Subtext>
+				<Subtext>Contains the raw serialized InterApp Message sent from an external source.</Subtext>
 			</Information>
 			<Type>read</Type>
 			<Interprete>
@@ -581,7 +581,7 @@
 			<Name>IAC_Generic_Response</Name>
 			<Description>Generic Inter App Responder</Description>
 			<Information>
-				<Subtext>Contains the raw serialized Message that serves as a response to an external source.</Subtext>
+				<Subtext>Contains the raw serialized InterApp Message that serves as a response to an external source.</Subtext>
 			</Information>
 			<Type>read</Type>
 			<Interprete>
@@ -879,7 +879,7 @@
 
 	<VersionHistory>
 		<Branches>
-			<Branch id="1">
+			<Branch id="5">
 				<Comment>Main Branch</Comment>
 				<SystemVersions>
 					<SystemVersion id="0">

@@ -8,6 +8,7 @@ namespace Skyline.Protocol.Tables
 	using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.Messages.MyTable;
 	using Skyline.DataMiner.Net.Helper;
 	using Skyline.DataMiner.Scripting;
+	using Skyline.DataMiner.Utils.Protocol.Extension;
 
 	using SLNetMessages = Skyline.DataMiner.Net.Messages;
 
@@ -72,26 +73,26 @@ namespace Skyline.Protocol.Tables
 
 		public MyTable(SLProtocol protocol)
 		{
-			uint[] exampleTableIdx = new uint[]
+			uint[] columnsToGetIdx = new uint[]
 			{
 				Parameter.Mytable.Idx.mytableinstance,
 				Parameter.Mytable.Idx.mytablemynumericcolumn,
 				Parameter.Mytable.Idx.mytablemystringcolumn,
 				Parameter.Mytable.Idx.mytablemydiscreetcolumn,
 			};
-			object[] exampletable = (object[])protocol.NotifyProtocol((int)SLNetMessages.NotifyType.NT_GET_TABLE_COLUMNS, Parameter.Mytable.tablePid, exampleTableIdx);
-			object[] instance = (object[])exampletable[0];
-			object[] myNumericCol = (object[])exampletable[1];
-			object[] myStringCol = (object[])exampletable[2];
-			object[] myDiscreetCol = (object[])exampletable[3];
+			object[] myTableColumns = (object[])protocol.GetColumns(Parameter.Mytable.tablePid, columnsToGetIdx);
+			object[] myTableInstance = (object[])myTableColumns[0];
+			object[] myTableNumericColumn = (object[])myTableColumns[1];
+			object[] myTableStringColumn = (object[])myTableColumns[2];
+			object[] myTableDiscreetColumn = (object[])myTableColumns[3];
 
-			for (int i = 0; i < instance.Length; i++)
+			for (int i = 0; i < myTableInstance.Length; i++)
 			{
 				Rows.Add(new MyTableRow(
-				instance[i],
-				myNumericCol[i],
-				myStringCol[i],
-				myDiscreetCol[i]));
+					myTableInstance[i],
+					myTableNumericColumn[i],
+					myTableStringColumn[i],
+					myTableDiscreetColumn[i]));
 			}
 		}
 

@@ -28,7 +28,7 @@ public static class QAction
 			 * for example the response of a HTTP Post request.
 			 */
 			var raw = Convert.ToString(protocol.GetParameter(Parameter.commandbody));
-			if(String.IsNullOrEmpty(raw))
+			if (String.IsNullOrEmpty(raw))
 			{
 				return;
 			}

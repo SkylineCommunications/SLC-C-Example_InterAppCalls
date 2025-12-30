@@ -3,6 +3,7 @@
 namespace Skyline.Protocol.InterApp.Executors.MyTable
 {
 	using System;
+
 	using Newtonsoft.Json;
 
 	using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.InterAppMessages;
@@ -19,13 +20,18 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 		{
 		}
 
-		// Step 1, Is always executed
+		/// <summary>
+		/// Step 1 (Is always executed) : Reads data from SLProtocol, Engine or other data sources.
+		/// </summary>
+		/// <param name="dataSource">SLProtocol, Engine, or other data sources.</param>
 		public override void DataGets(object dataSource)
 		{
 			// Can be used to fetch other data needed to handle this InterApp Call.
 		}
 
-		// Step 2, Is always executed
+		/// <summary>
+		/// Step 2 (Is always executed) : Parses the data retrieved from a data source in DataGets.
+		/// </summary>
 		public override void Parse()
 		{
 			/* If you need to parse, some of the data you can do this here.
@@ -41,7 +47,10 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 			};
 		}
 
-		// Step 3, Is always executed
+		/// <summary>
+		/// Step 3 (Is always executed) : Validates received data for validity.
+		/// </summary>
+		/// <returns>A boolean indicating if the received data is valid.</returns>
 		public override bool Validate()
 		{
 			// Here you can validate the request, Check if all the necessary data is present.
@@ -59,7 +68,9 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 			return true;
 		}
 
-		// Step 4, Only if the validate was successful
+		/// <summary>
+		/// Step 4 (Only if the Validate was successful) : Modifies retrieved data and Message data into a correct format for setting.
+		/// </summary>
 		public override void Modify()
 		{
 			/* Here you can modify the InterApp Call into something the device can understand.
@@ -67,7 +78,10 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 			 */
 		}
 
-		// Step 5, Only if the validate was successful
+		/// <summary>
+		/// Step 5 (Only if the Validate was successful): Writes data to SLProtocol, Engine, or another data destination.
+		/// </summary>
+		/// <param name="dataDestination">SLProtocol, Engine, or another data destination.</param>
 		public override void DataSets(object dataDestination)
 		{
 			// Here you do the actual set, in our case this is the adding of a new row to the Example Table.
@@ -76,7 +90,7 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 			var newId = Guid.NewGuid().ToString();
 			if (!protocol.Exists(Parameter.Mytable.tablePid, newId))
 			{
-				// Mimic for example setting a http body and triggering a group.
+				// Mimic for example setting an HTTP body and triggering a group.
 				Message.Data.ExampleData.Instance = newId;
 				protocol.SetParameter(Parameter.commandbody, JsonConvert.SerializeObject(Message.Data.ExampleData));
 				protocol.CheckTrigger(11);
@@ -93,11 +107,14 @@ namespace Skyline.Protocol.InterApp.Executors.MyTable
 			}
 		}
 
-		// Step 6, Is always executed
+		/// <summary>
+		/// Step 6 (Is always executed)	: Creates a return Message.
+		/// </summary>
+		/// <returns>A message representing the response for the processed message.</returns>
 		public override Message CreateReturnMessage()
 		{
 			// Here you can build the return message. If you don't need it you can return null.
-			if(result != null)
+			if (result != null)
 			{
 				return new GenericInterAppMessage<AdvancedCreateExampleRowResult>(result);
 			}
