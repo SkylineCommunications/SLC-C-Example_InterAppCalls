@@ -8,46 +8,11 @@ namespace Skyline.DataMiner.Scripting
 {
 public static class Parameter
 {
-	/// <summary>PID: 11 | Type: read</summary>
+	/// <summary>PID: 9 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int commandbody_11 = 11;
-	/// <summary>PID: 11 | Type: read</summary>
-	public const int commandbody = 11;
-	/// <summary>PID: 1001 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int element_1001 = 1001;
-	/// <summary>PID: 1001 | Type: read</summary>
-	public const int element = 1001;
-	/// <summary>PID: 1002 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int element_discreetlist_1002 = 1002;
-	/// <summary>PID: 1002 | Type: read</summary>
-	public const int element_discreetlist = 1002;
-	/// <summary>PID: 1003 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int messagetype_1003 = 1003;
-	/// <summary>PID: 1003 | Type: read</summary>
-	public const int messagetype = 1003;
-	/// <summary>PID: 1004 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int messagetype_discreetlist_1004 = 1004;
-	/// <summary>PID: 1004 | Type: read</summary>
-	public const int messagetype_discreetlist = 1004;
-	/// <summary>PID: 1005 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int mynumericvalue_1005 = 1005;
-	/// <summary>PID: 1005 | Type: read</summary>
-	public const int mynumericvalue = 1005;
-	/// <summary>PID: 1006 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int mystringvalue_1006 = 1006;
-	/// <summary>PID: 1006 | Type: read</summary>
-	public const int mystringvalue = 1006;
-	/// <summary>PID: 1007 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int mydiscreetvalue_1007 = 1007;
-	/// <summary>PID: 1007 | Type: read</summary>
-	public const int mydiscreetvalue = 1007;
+	public const int readme_9 = 9;
+	/// <summary>PID: 9 | Type: read</summary>
+	public const int readme = 9;
 	/// <summary>PID: 9000000 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int iac_generic_receiver_9000000 = 9000000;
@@ -60,72 +25,37 @@ public static class Parameter
 	public const int iac_generic_response = 9000001;
 	public class Write
 	{
-		/// <summary>PID: 1000 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int sendinterapp_1000 = 1000;
-		/// <summary>PID: 1000 | Type: write</summary>
-		public const int sendinterapp = 1000;
-		/// <summary>PID: 1051 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int element_1051 = 1051;
-		/// <summary>PID: 1051 | Type: write</summary>
-		public const int element = 1051;
-		/// <summary>PID: 1053 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int messagetype_1053 = 1053;
-		/// <summary>PID: 1053 | Type: write</summary>
-		public const int messagetype = 1053;
-		/// <summary>PID: 1055 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int mynumericvalue_1055 = 1055;
-		/// <summary>PID: 1055 | Type: write</summary>
-		public const int mynumericvalue = 1055;
-		/// <summary>PID: 1056 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int mystringvalue_1056 = 1056;
-		/// <summary>PID: 1056 | Type: write</summary>
-		public const int mystringvalue = 1056;
-		/// <summary>PID: 1057 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int mydiscreetvalue_1057 = 1057;
-		/// <summary>PID: 1057 | Type: write</summary>
-		public const int mydiscreetvalue = 1057;
-		/// <summary>PID: 1990 | Type: write</summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public const int mytable_contextmenu_1990 = 1990;
-		/// <summary>PID: 1990 | Type: write</summary>
-		public const int mytable_contextmenu = 1990;
 	}
-	public class Mytable
+	public class Users
 	{
-		/// <summary>PID: 2000</summary>
-		public const int tablePid = 2000;
+		/// <summary>PID: 10000</summary>
+		public const int tablePid = 10000;
 		/// <summary>IDX: 0</summary>
 		public const int indexColumn = 0;
-		/// <summary>PID: 2001</summary>
-		public const int indexColumnPid = 2001;
+		/// <summary>PID: 10001</summary>
+		public const int indexColumnPid = 10001;
 		public class Pid
 		{
-			/// <summary>PID: 2001 | Type: read</summary>
+			/// <summary>PID: 10001 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mytableinstance_2001 = 2001;
-			/// <summary>PID: 2001 | Type: read</summary>
-			public const int mytableinstance = 2001;
-			/// <summary>PID: 2002 | Type: read</summary>
+			public const int users_instance_10001 = 10001;
+			/// <summary>PID: 10001 | Type: read</summary>
+			public const int users_instance = 10001;
+			/// <summary>PID: 10002 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mytablemynumericcolumn_2002 = 2002;
-			/// <summary>PID: 2002 | Type: read</summary>
-			public const int mytablemynumericcolumn = 2002;
-			/// <summary>PID: 2003 | Type: read</summary>
+			public const int users_lastname_10002 = 10002;
+			/// <summary>PID: 10002 | Type: read</summary>
+			public const int users_lastname = 10002;
+			/// <summary>PID: 10003 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mytablemystringcolumn_2003 = 2003;
-			/// <summary>PID: 2003 | Type: read</summary>
-			public const int mytablemystringcolumn = 2003;
-			/// <summary>PID: 2004 | Type: read</summary>
+			public const int users_firstname_10003 = 10003;
+			/// <summary>PID: 10003 | Type: read</summary>
+			public const int users_firstname = 10003;
+			/// <summary>PID: 10004 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mytablemydiscreetcolumn_2004 = 2004;
-			/// <summary>PID: 2004 | Type: read</summary>
-			public const int mytablemydiscreetcolumn = 2004;
+			public const int users_birthdate_10004 = 10004;
+			/// <summary>PID: 10004 | Type: read</summary>
+			public const int users_birthdate = 10004;
 			public class Write
 			{
 			}
@@ -134,24 +64,72 @@ public static class Parameter
 		{
 			/// <summary>IDX: 0 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mytableinstance_2001 = 0;
+			public const int users_instance_10001 = 0;
 			/// <summary>IDX: 0 | Type: read</summary>
-			public const int mytableinstance = 0;
+			public const int users_instance = 0;
 			/// <summary>IDX: 1 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mytablemynumericcolumn_2002 = 1;
+			public const int users_lastname_10002 = 1;
 			/// <summary>IDX: 1 | Type: read</summary>
-			public const int mytablemynumericcolumn = 1;
+			public const int users_lastname = 1;
 			/// <summary>IDX: 2 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mytablemystringcolumn_2003 = 2;
+			public const int users_firstname_10003 = 2;
 			/// <summary>IDX: 2 | Type: read</summary>
-			public const int mytablemystringcolumn = 2;
+			public const int users_firstname = 2;
 			/// <summary>IDX: 3 | Type: read</summary>
 			[EditorBrowsable(EditorBrowsableState.Never)]
-			public const int mytablemydiscreetcolumn_2004 = 3;
+			public const int users_birthdate_10004 = 3;
 			/// <summary>IDX: 3 | Type: read</summary>
-			public const int mytablemydiscreetcolumn = 3;
+			public const int users_birthdate = 3;
+		}
+	}
+	public class Streams
+	{
+		/// <summary>PID: 10100</summary>
+		public const int tablePid = 10100;
+		/// <summary>IDX: 0</summary>
+		public const int indexColumn = 0;
+		/// <summary>PID: 10101</summary>
+		public const int indexColumnPid = 10101;
+		public class Pid
+		{
+			/// <summary>PID: 10101 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int streams_instance_10101 = 10101;
+			/// <summary>PID: 10101 | Type: read</summary>
+			public const int streams_instance = 10101;
+			/// <summary>PID: 10102 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int streams_name_10102 = 10102;
+			/// <summary>PID: 10102 | Type: read</summary>
+			public const int streams_name = 10102;
+			/// <summary>PID: 10103 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int streams_adminstate_10103 = 10103;
+			/// <summary>PID: 10103 | Type: read</summary>
+			public const int streams_adminstate = 10103;
+			public class Write
+			{
+			}
+		}
+		public class Idx
+		{
+			/// <summary>IDX: 0 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int streams_instance_10101 = 0;
+			/// <summary>IDX: 0 | Type: read</summary>
+			public const int streams_instance = 0;
+			/// <summary>IDX: 1 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int streams_name_10102 = 1;
+			/// <summary>IDX: 1 | Type: read</summary>
+			public const int streams_name = 1;
+			/// <summary>IDX: 2 | Type: read</summary>
+			[EditorBrowsable(EditorBrowsableState.Never)]
+			public const int streams_adminstate_10103 = 2;
+			/// <summary>IDX: 2 | Type: read</summary>
+			public const int streams_adminstate = 2;
 		}
 	}
 	public class Iac_messages
@@ -245,20 +223,6 @@ public static class Parameter
 }
 public class WriteParameters
 {
-	/// <summary>PID: 1000  | Type: write | DISCREETS: Send = 1</summary>
-	public System.Object Sendinterapp {get { return Protocol.GetParameter(1000); }set { Protocol.SetParameter(1000, value); }}
-	/// <summary>PID: 1051  | Type: write</summary>
-	public System.Object Element {get { return Protocol.GetParameter(1051); }set { Protocol.SetParameter(1051, value); }}
-	/// <summary>PID: 1053  | Type: write</summary>
-	public System.Object Messagetype {get { return Protocol.GetParameter(1053); }set { Protocol.SetParameter(1053, value); }}
-	/// <summary>PID: 1055  | Type: write</summary>
-	public System.Object Mynumericvalue {get { return Protocol.GetParameter(1055); }set { Protocol.SetParameter(1055, value); }}
-	/// <summary>PID: 1056  | Type: write</summary>
-	public System.Object Mystringvalue {get { return Protocol.GetParameter(1056); }set { Protocol.SetParameter(1056, value); }}
-	/// <summary>PID: 1057  | Type: write | DISCREETS: Discreet 1 = 0, Discreet 2 = 1, Discreet 3 = 2</summary>
-	public System.Object Mydiscreetvalue {get { return Protocol.GetParameter(1057); }set { Protocol.SetParameter(1057, value); }}
-	/// <summary>PID: 1990  | Type: write | DISCREETS: Create Simple Item... = 1, Create Advanced Item... = 2, Create Wrong Advanced Item... = 3, Create Delayed Item... = 4</summary>
-	public System.Object Mytable_contextmenu {get { return Protocol.GetParameter(1990); }set { Protocol.SetParameter(1990, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -267,45 +231,29 @@ public class WriteParameters
 }
 public interface SLProtocolExt : SLProtocol
 {
-	/// <summary>PID: 2000</summary>
-	MytableQActionTable mytable { get; set; }
+	/// <summary>PID: 10000</summary>
+	UsersQActionTable users { get; set; }
+	/// <summary>PID: 10100</summary>
+	StreamsQActionTable streams { get; set; }
 	/// <summary>PID: 9000100</summary>
 	Iac_messagesQActionTable iac_messages { get; set; }
 	object Afterstartup_dummy { get; set; }
-	object Markrowsasconfirmed_dummy { get; set; }
-	object Commandbody_11 { get; set; }
-	object Commandbody { get; set; }
-	object Sendinterapp_1000 { get; set; }
-	object Sendinterapp { get; set; }
-	object Element_1001 { get; set; }
-	object Element { get; set; }
-	object Element_discreetlist_1002 { get; set; }
-	object Element_discreetlist { get; set; }
-	object Messagetype_1003 { get; set; }
-	object Messagetype { get; set; }
-	object Messagetype_discreetlist_1004 { get; set; }
-	object Messagetype_discreetlist { get; set; }
-	object Mynumericvalue_1005 { get; set; }
-	object Mynumericvalue { get; set; }
-	object Mystringvalue_1006 { get; set; }
-	object Mystringvalue { get; set; }
-	object Mydiscreetvalue_1007 { get; set; }
-	object Mydiscreetvalue { get; set; }
-	object Element_1051 { get; set; }
-	object Messagetype_1053 { get; set; }
-	object Mynumericvalue_1055 { get; set; }
-	object Mystringvalue_1056 { get; set; }
-	object Mydiscreetvalue_1057 { get; set; }
-	object Mytable_contextmenu_1990 { get; set; }
-	object Mytable_contextmenu { get; set; }
-	object Mytableinstance_2001 { get; set; }
-	object Mytableinstance { get; set; }
-	object Mytablemynumericcolumn_2002 { get; set; }
-	object Mytablemynumericcolumn { get; set; }
-	object Mytablemystringcolumn_2003 { get; set; }
-	object Mytablemystringcolumn { get; set; }
-	object Mytablemydiscreetcolumn_2004 { get; set; }
-	object Mytablemydiscreetcolumn { get; set; }
+	object Readme_9 { get; set; }
+	object Readme { get; set; }
+	object Users_instance_10001 { get; set; }
+	object Users_instance { get; set; }
+	object Users_lastname_10002 { get; set; }
+	object Users_lastname { get; set; }
+	object Users_firstname_10003 { get; set; }
+	object Users_firstname { get; set; }
+	object Users_birthdate_10004 { get; set; }
+	object Users_birthdate { get; set; }
+	object Streams_instance_10101 { get; set; }
+	object Streams_instance { get; set; }
+	object Streams_name_10102 { get; set; }
+	object Streams_name { get; set; }
+	object Streams_adminstate_10103 { get; set; }
+	object Streams_adminstate { get; set; }
 	object Iac_generic_receiver_9000000 { get; set; }
 	object Iac_generic_receiver { get; set; }
 	object Iac_generic_response_9000001 { get; set; }
@@ -328,97 +276,54 @@ public interface SLProtocolExt : SLProtocol
 }
 public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 {
-	/// <summary>PID: 2000</summary>
-	public MytableQActionTable mytable { get; set; }
+	/// <summary>PID: 10000</summary>
+	public UsersQActionTable users { get; set; }
+	/// <summary>PID: 10100</summary>
+	public StreamsQActionTable streams { get; set; }
 	/// <summary>PID: 9000100</summary>
 	public Iac_messagesQActionTable iac_messages { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
-	/// <summary>PID: 10  | Type: dummy</summary>
-	public System.Object Markrowsasconfirmed_dummy {get { return GetParameter(10); }set { SetParameter(10, value); }}
-	/// <summary>PID: 11  | Type: read</summary>
+	/// <summary>PID: 9  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Commandbody_11 {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 11  | Type: read</summary>
-	public System.Object Commandbody {get { return GetParameter(11); }set { SetParameter(11, value); }}
-	/// <summary>PID: 1000  | Type: write | DISCREETS: Send = 1</summary>
-	public System.Object Sendinterapp_1000 {get { return GetParameter(1000); }set { SetParameter(1000, value); }}
-	/// <summary>PID: 1000  | Type: write | DISCREETS: Send = 1</summary>
-	public System.Object Sendinterapp {get { return Write.Sendinterapp; }set { Write.Sendinterapp = value; }}
-	/// <summary>PID: 1001  | Type: read</summary>
+	public System.Object Readme_9 {get { return GetParameter(9); }set { SetParameter(9, value); }}
+	/// <summary>PID: 9  | Type: read</summary>
+	public System.Object Readme {get { return GetParameter(9); }set { SetParameter(9, value); }}
+	/// <summary>PID: 10001  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Element_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
-	/// <summary>PID: 1001  | Type: read</summary>
-	public System.Object Element {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
-	/// <summary>PID: 1002  | Type: read</summary>
+	public System.Object Users_instance_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	/// <summary>PID: 10001  | Type: read</summary>
+	public System.Object Users_instance {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	/// <summary>PID: 10002  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Element_discreetlist_1002 {get { return GetParameter(1002); }set { SetParameter(1002, value); }}
-	/// <summary>PID: 1002  | Type: read</summary>
-	public System.Object Element_discreetlist {get { return GetParameter(1002); }set { SetParameter(1002, value); }}
-	/// <summary>PID: 1003  | Type: read</summary>
+	public System.Object Users_lastname_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
+	/// <summary>PID: 10002  | Type: read</summary>
+	public System.Object Users_lastname {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
+	/// <summary>PID: 10003  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Messagetype_1003 {get { return GetParameter(1003); }set { SetParameter(1003, value); }}
-	/// <summary>PID: 1003  | Type: read</summary>
-	public System.Object Messagetype {get { return GetParameter(1003); }set { SetParameter(1003, value); }}
-	/// <summary>PID: 1004  | Type: read</summary>
+	public System.Object Users_firstname_10003 {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
+	/// <summary>PID: 10003  | Type: read</summary>
+	public System.Object Users_firstname {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
+	/// <summary>PID: 10004  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Messagetype_discreetlist_1004 {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
-	/// <summary>PID: 1004  | Type: read</summary>
-	public System.Object Messagetype_discreetlist {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
-	/// <summary>PID: 1005  | Type: read</summary>
+	public System.Object Users_birthdate_10004 {get { return GetParameter(10004); }set { SetParameter(10004, value); }}
+	/// <summary>PID: 10004  | Type: read</summary>
+	public System.Object Users_birthdate {get { return GetParameter(10004); }set { SetParameter(10004, value); }}
+	/// <summary>PID: 10101  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mynumericvalue_1005 {get { return GetParameter(1005); }set { SetParameter(1005, value); }}
-	/// <summary>PID: 1005  | Type: read</summary>
-	public System.Object Mynumericvalue {get { return GetParameter(1005); }set { SetParameter(1005, value); }}
-	/// <summary>PID: 1006  | Type: read</summary>
+	public System.Object Streams_instance_10101 {get { return GetParameter(10101); }set { SetParameter(10101, value); }}
+	/// <summary>PID: 10101  | Type: read</summary>
+	public System.Object Streams_instance {get { return GetParameter(10101); }set { SetParameter(10101, value); }}
+	/// <summary>PID: 10102  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mystringvalue_1006 {get { return GetParameter(1006); }set { SetParameter(1006, value); }}
-	/// <summary>PID: 1006  | Type: read</summary>
-	public System.Object Mystringvalue {get { return GetParameter(1006); }set { SetParameter(1006, value); }}
-	/// <summary>PID: 1007  | Type: read | DISCREETS: Discreet 1 = 0, Discreet 2 = 1, Discreet 3 = 2</summary>
+	public System.Object Streams_name_10102 {get { return GetParameter(10102); }set { SetParameter(10102, value); }}
+	/// <summary>PID: 10102  | Type: read</summary>
+	public System.Object Streams_name {get { return GetParameter(10102); }set { SetParameter(10102, value); }}
+	/// <summary>PID: 10103  | Type: read | DISCREETS: Active = 1, Idle = 2</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mydiscreetvalue_1007 {get { return GetParameter(1007); }set { SetParameter(1007, value); }}
-	/// <summary>PID: 1007  | Type: read | DISCREETS: Discreet 1 = 0, Discreet 2 = 1, Discreet 3 = 2</summary>
-	public System.Object Mydiscreetvalue {get { return GetParameter(1007); }set { SetParameter(1007, value); }}
-	/// <summary>PID: 1051  | Type: write</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Element_1051 {get { return GetParameter(1051); }set { SetParameter(1051, value); }}
-	/// <summary>PID: 1053  | Type: write</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Messagetype_1053 {get { return GetParameter(1053); }set { SetParameter(1053, value); }}
-	/// <summary>PID: 1055  | Type: write</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mynumericvalue_1055 {get { return GetParameter(1055); }set { SetParameter(1055, value); }}
-	/// <summary>PID: 1056  | Type: write</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mystringvalue_1056 {get { return GetParameter(1056); }set { SetParameter(1056, value); }}
-	/// <summary>PID: 1057  | Type: write | DISCREETS: Discreet 1 = 0, Discreet 2 = 1, Discreet 3 = 2</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mydiscreetvalue_1057 {get { return GetParameter(1057); }set { SetParameter(1057, value); }}
-	/// <summary>PID: 1990  | Type: write | DISCREETS: Create Simple Item... = 1, Create Advanced Item... = 2, Create Wrong Advanced Item... = 3, Create Delayed Item... = 4</summary>
-	public System.Object Mytable_contextmenu_1990 {get { return GetParameter(1990); }set { SetParameter(1990, value); }}
-	/// <summary>PID: 1990  | Type: write | DISCREETS: Create Simple Item... = 1, Create Advanced Item... = 2, Create Wrong Advanced Item... = 3, Create Delayed Item... = 4</summary>
-	public System.Object Mytable_contextmenu {get { return Write.Mytable_contextmenu; }set { Write.Mytable_contextmenu = value; }}
-	/// <summary>PID: 2001  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mytableinstance_2001 {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
-	/// <summary>PID: 2001  | Type: read</summary>
-	public System.Object Mytableinstance {get { return GetParameter(2001); }set { SetParameter(2001, value); }}
-	/// <summary>PID: 2002  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mytablemynumericcolumn_2002 {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
-	/// <summary>PID: 2002  | Type: read</summary>
-	public System.Object Mytablemynumericcolumn {get { return GetParameter(2002); }set { SetParameter(2002, value); }}
-	/// <summary>PID: 2003  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mytablemystringcolumn_2003 {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
-	/// <summary>PID: 2003  | Type: read</summary>
-	public System.Object Mytablemystringcolumn {get { return GetParameter(2003); }set { SetParameter(2003, value); }}
-	/// <summary>PID: 2004  | Type: read | DISCREETS: Discreet 1 = 0, Discreet 2 = 1, Discreet 3 = 2</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mytablemydiscreetcolumn_2004 {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
-	/// <summary>PID: 2004  | Type: read | DISCREETS: Discreet 1 = 0, Discreet 2 = 1, Discreet 3 = 2</summary>
-	public System.Object Mytablemydiscreetcolumn {get { return GetParameter(2004); }set { SetParameter(2004, value); }}
+	public System.Object Streams_adminstate_10103 {get { return GetParameter(10103); }set { SetParameter(10103, value); }}
+	/// <summary>PID: 10103  | Type: read | DISCREETS: Active = 1, Idle = 2</summary>
+	public System.Object Streams_adminstate {get { return GetParameter(10103); }set { SetParameter(10103, value); }}
 	/// <summary>PID: 9000000  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Iac_generic_receiver_9000000 {get { return GetParameter(9000000); }set { SetParameter(9000000, value); }}
@@ -467,17 +372,25 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public WriteParameters Write { get; set; }
 	public ConcreteSLProtocolExt()
 	{
-		mytable = new MytableQActionTable(this, 2000, "mytable");
+		users = new UsersQActionTable(this, 10000, "users");
+		streams = new StreamsQActionTable(this, 10100, "streams");
 		iac_messages = new Iac_messagesQActionTable(this, 9000100, "iac_messages");
 		Write = new WriteParameters(this);
 	}
 }
 /// <summary>IDX: 0</summary>
-public class MytableQActionTable : QActionTable, IEnumerable<MytableQActionRow>
+public class UsersQActionTable : QActionTable, IEnumerable<UsersQActionRow>
 {
-	public MytableQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	public UsersQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
 	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
-	public IEnumerator<MytableQActionRow> GetEnumerator() { return new QActionTableEnumerator<MytableQActionRow>(this); }
+	public IEnumerator<UsersQActionRow> GetEnumerator() { return new QActionTableEnumerator<UsersQActionRow>(this); }
+}
+/// <summary>IDX: 0</summary>
+public class StreamsQActionTable : QActionTable, IEnumerable<StreamsQActionRow>
+{
+	public StreamsQActionTable(SLProtocol protocol, int tableId, string tableName) : base(protocol, tableId, tableName) { }
+	IEnumerator IEnumerable.GetEnumerator() { return (IEnumerator) GetEnumerator(); }
+	public IEnumerator<StreamsQActionRow> GetEnumerator() { return new QActionTableEnumerator<StreamsQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
 public class Iac_messagesQActionTable : QActionTable, IEnumerable<Iac_messagesQActionRow>
@@ -487,32 +400,55 @@ public class Iac_messagesQActionTable : QActionTable, IEnumerable<Iac_messagesQA
 	public IEnumerator<Iac_messagesQActionRow> GetEnumerator() { return new QActionTableEnumerator<Iac_messagesQActionRow>(this); }
 }
 /// <summary>IDX: 0</summary>
-public class MytableQActionRow : QActionTableRow
+public class UsersQActionRow : QActionTableRow
 {
-	/// <summary>PID: 2001 | Type: read</summary>
+	/// <summary>PID: 10001 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mytableinstance_2001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
-	/// <summary>PID: 2001 | Type: read</summary>
-	public System.Object Mytableinstance { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
-	/// <summary>PID: 2002 | Type: read</summary>
+	public System.Object Users_instance_10001 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 10001 | Type: read</summary>
+	public System.Object Users_instance { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 10002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mytablemynumericcolumn_2002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	/// <summary>PID: 2002 | Type: read</summary>
-	public System.Object Mytablemynumericcolumn { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
-	/// <summary>PID: 2003 | Type: read</summary>
+	public System.Object Users_lastname_10002 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 10002 | Type: read</summary>
+	public System.Object Users_lastname { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 10003 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mytablemystringcolumn_2003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	/// <summary>PID: 2003 | Type: read</summary>
-	public System.Object Mytablemystringcolumn { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
-	/// <summary>PID: 2004 | Type: read</summary>
+	public System.Object Users_firstname_10003 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 10003 | Type: read</summary>
+	public System.Object Users_firstname { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 10004 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Mytablemydiscreetcolumn_2004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	/// <summary>PID: 2004 | Type: read</summary>
-	public System.Object Mytablemydiscreetcolumn { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
-	public MytableQActionRow() : base(0, 4) { }
-	public MytableQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
-	public static implicit operator MytableQActionRow(System.Object[] source) { return new MytableQActionRow(source); }
-	public static implicit operator System.Object[](MytableQActionRow source) { return source.ToObjectArray(); }
+	public System.Object Users_birthdate_10004 { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	/// <summary>PID: 10004 | Type: read</summary>
+	public System.Object Users_birthdate { get { if (base.Columns.ContainsKey(3)) { return base.Columns[3]; } else { return null; } } set { if (base.Columns.ContainsKey(3)) { base.Columns[3] = value; } else { base.Columns.Add(3, value); } } }
+	public UsersQActionRow() : base(0, 4) { }
+	public UsersQActionRow(System.Object[] oRow) : base(0, 4, oRow) { }
+	public static implicit operator UsersQActionRow(System.Object[] source) { return new UsersQActionRow(source); }
+	public static implicit operator System.Object[](UsersQActionRow source) { return source.ToObjectArray(); }
+}
+/// <summary>IDX: 0</summary>
+public class StreamsQActionRow : QActionTableRow
+{
+	/// <summary>PID: 10101 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Streams_instance_10101 { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 10101 | Type: read</summary>
+	public System.Object Streams_instance { get { if (base.Columns.ContainsKey(0)) { return base.Columns[0]; } else { return null; } } set { if (base.Columns.ContainsKey(0)) { base.Columns[0] = value; } else { base.Columns.Add(0, value); } } }
+	/// <summary>PID: 10102 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Streams_name_10102 { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 10102 | Type: read</summary>
+	public System.Object Streams_name { get { if (base.Columns.ContainsKey(1)) { return base.Columns[1]; } else { return null; } } set { if (base.Columns.ContainsKey(1)) { base.Columns[1] = value; } else { base.Columns.Add(1, value); } } }
+	/// <summary>PID: 10103 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Streams_adminstate_10103 { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	/// <summary>PID: 10103 | Type: read</summary>
+	public System.Object Streams_adminstate { get { if (base.Columns.ContainsKey(2)) { return base.Columns[2]; } else { return null; } } set { if (base.Columns.ContainsKey(2)) { base.Columns[2] = value; } else { base.Columns.Add(2, value); } } }
+	public StreamsQActionRow() : base(0, 3) { }
+	public StreamsQActionRow(System.Object[] oRow) : base(0, 3, oRow) { }
+	public static implicit operator StreamsQActionRow(System.Object[] source) { return new StreamsQActionRow(source); }
+	public static implicit operator System.Object[](StreamsQActionRow source) { return source.ToObjectArray(); }
 }
 /// <summary>IDX: 0</summary>
 public class Iac_messagesQActionRow : QActionTableRow

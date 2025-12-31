@@ -17,7 +17,7 @@
 	<SNMP includepages="true">auto</SNMP>
 	<ElementType>Example</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;Send Inter-App;----------;Inter-App Communication" wideColumnPages=""/>
+	<Display defaultPage="General" pageOrder="General;----------;Custom Data;Data-Source Data;----------;Inter-App Communication" wideColumnPages="Custom Data;Data-Source Data"/>
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
@@ -30,417 +30,28 @@
 			<Description>After startup</Description>
 			<Type>dummy</Type>
 		</Param>
-		<Param id="10">
-			<Name>MarkRowsAsConfirmed</Name>
-			<Description>Mark Rows as Confirmed</Description>
-			<Type>dummy</Type>
-		</Param>
 		
-		<Param id="11">
-			<Name>CommandBody</Name>
-			<Description>Command Body</Description>
-			<Type>read</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-		</Param>
-		
-		<Param id="1000">
-			<Name>SendInterApp</Name>
-			<Type>write</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>5</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type width="110">button</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Send</Display>
-						<Value>1</Value>
-					</Discreet>
-				</Discreets>
-			</Measurement>
-		</Param>
-		<Param id="1001" trending="false">
-			<Name>Element</Name>
-			<Description>Element</Description>
+		<Param id="9" trending="false">
+			<Name>ReadMe</Name>
+			<Description>Read Me</Description>
 			<Type>read</Type>
 			<Information>
+				<Subtext>Description of this example protocol.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
 				<Type>string</Type>
 				<LengthType>next param</LengthType>
+				<DefaultValue>
+					<![CDATA[
+This protocol demonstrates how to expose InterApp calls from an element to other DataMiner components (other elements, automation scripts, etc.).
+
+- The 'Custom Data' page contains example of custom parameters that can be configured via InterApp calls. By custom parameters, we mean parameters containing data fully managed on the DataMiner side (i.e. not retrieved from the any data-source). This means that when InterApp calls to manage such data comes in, we can right away validate and accept the data or not, and provide a response to the InterApp caller right away.
+
+- The 'DataSource Data' page contains examples of data-source parameters that can be configured via InterApp calls. By data-source parameters, we mean parameters containing data retrieved from a data-source. In this case, when InterApp calls to manage such data comes in, we need to forward the data to the data-source first, wait for confirmation from the data-source that the data has been accepted, and only then provide a response to the InterApp caller. This will therefore require more logic, buffering, etc.
+					]]>
+				</DefaultValue>
 			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>0</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets dependencyId="1002" />
-			</Measurement>
-		</Param>
-		<Param id="1051" setter="true">
-			<Name>Element</Name>
-			<Description>Element</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>0</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets dependencyId="1002" />
-			</Measurement>
-		</Param>
-		<Param id="1002" trending="false">
-			<Name>Element_DiscreetList</Name>
-			<Description>Element Discreet List</Description>
-			<Type>read</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-				<DefaultValue></DefaultValue>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="1003" trending="false">
-			<Name>MessageType</Name>
-			<Description>Message Type</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>1</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets dependencyId="1004" />
-			</Measurement>
-		</Param>
-		<Param id="1053" setter="true">
-			<Name>MessageType</Name>
-			<Description>Message Type</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>1</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets dependencyId="1004" />
-			</Measurement>
-		</Param>
-		<Param id="1004" trending="false">
-			<Name>MessageType_DiscreetList</Name>
-			<Description>Message Type Discreet List</Description>
-			<Type>read</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-				<DefaultValue></DefaultValue>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="1005" trending="true">
-			<Name>MyNumericValue</Name>
-			<Description>My Numeric Value</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Units>%</Units>
-				<Range>
-					<Low>0</Low>
-					<High>100</High>
-				</Range>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>2</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-			</Measurement>
-		</Param>
-		<Param id="1055" setter="true">
-			<Name>MyNumericValue</Name>
-			<Description>My Numeric Value</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Units>%</Units>
-				<Range>
-					<Low>0</Low>
-					<High>100</High>
-				</Range>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>2</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-			</Measurement>
-		</Param>
-		<Param id="1006" trending="false">
-			<Name>MyStringValue</Name>
-			<Description>My String Value</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="1056" setter="true">
-			<Name>MyStringValue</Name>
-			<Description>My String Value</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>3</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="1007" trending="false">
-			<Name>MyDiscreetValue</Name>
-			<Description>My Discreet Value</Description>
-			<Type>read</Type>
-			<Information>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>4</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Discreet 1</Display>
-						<Value>0</Value>
-					</Discreet>
-					<Discreet>
-						<Display>Discreet 2</Display>
-						<Value>1</Value>
-					</Discreet>
-					<Discreet>
-						<Display>Discreet 3</Display>
-						<Value>2</Value>
-					</Discreet>
-				</Discreets>
-			</Measurement>
-		</Param>
-		<Param id="1057" setter="true">
-			<Name>MyDiscreetValue</Name>
-			<Description>My Discreet Value</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Positions>
-					<Position>
-						<Page>Send Inter-App</Page>
-						<Column>0</Column>
-						<Row>4</Row>
-					</Position>
-				</Positions>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets>
-					<Discreet>
-						<Display>Discreet 1</Display>
-						<Value>0</Value>
-					</Discreet>
-					<Discreet>
-						<Display>Discreet 2</Display>
-						<Value>1</Value>
-					</Discreet>
-					<Discreet>
-						<Display>Discreet 3</Display>
-						<Value>2</Value>
-					</Discreet>
-				</Discreets>
-			</Measurement>
-		</Param>
-		
-		<Param id="1990">
-			<Name>MyTable_ContextMenu</Name>
-			<Description>Context Menu for My Table</Description>
-			<Type>write</Type>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>discreet</Type>
-				<Discreets>
-					<Discreet dependencyValues="1002;1003;1004">
-						<Display>Create Simple Item...</Display>
-						<Value>1</Value>
-					</Discreet>
-					<Discreet dependencyValues="1002;1003;1004">
-						<Display>Create Advanced Item...</Display>
-						<Value>2</Value>
-					</Discreet>
-					<Discreet dependencyValues="1003;1004">
-						<Display>Create Wrong Advanced Item...</Display>
-						<Value>3</Value>
-					</Discreet>
-					<Discreet dependencyValues="1002;1003;1004">
-						<Display>Create Delayed Item...</Display>
-						<Value>4</Value>
-					</Discreet>
-				</Discreets>
-			</Measurement>
-		</Param>
-		<Param id="2000">
-			<Name>MyTable</Name>
-			<Description>My Table</Description>
-			<Type>array</Type>
-			<ArrayOptions index="0" options=";volatile">
-				<ColumnOption idx="0" pid="2001" type="retrieved" options="" />
-				<ColumnOption idx="1" pid="2002" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="2003" type="retrieved" options="" />
-				<ColumnOption idx="3" pid="2004" type="retrieved" options="" />
-			</ArrayOptions>
-			<Information>
-				<Subtext>A table with example columns.</Subtext>
-			</Information>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
@@ -452,12 +63,41 @@
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3,width:100-135-121-132,sort:STRING-INT-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type lines="20">string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2001" trending="false">
-			<Name>MyTableInstance</Name>
-			<Description>Instance (My Table)</Description>
+		
+		<!-- DataMiner Custom parameters -->
+		<Param id="10000">
+			<Name>Users</Name>
+			<Description>Users</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";volatile">
+				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="10002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="10003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="10004" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>This table allows to manage a list of users. This table is completely independent from any data-source.</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Custom Data</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:10001|0-10002|1-10003|2-10004|3,width:100-100-100-100,sort:STRING-STRING-STRING-INT,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001" trending="false">
+			<Name>Users_Instance</Name>
+			<Description>Instance (Users)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
@@ -474,36 +114,12 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2002" trending="false">
-			<Name>MyTableMyNumericColumn</Name>
-			<Description>My Numeric Column (My Table)</Description>
+		<Param id="10002" trending="false">
+			<Name>Users_LastName</Name>
+			<Description>Last Name (Users)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>An example column of type 'double'.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>numeric text</RawType>
-				<Type>double</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Units>%</Units>
-				<Range>
-					<Low>0</Low>
-					<High>100</High>
-				</Range>
-			</Display>
-			<Measurement>
-				<Type>number</Type>
-			</Measurement>
-		</Param>
-		<Param id="2003" trending="false">
-			<Name>MyTableMyStringColumn</Name>
-			<Description>My String Column (My Table)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>An example column of type 'string'.</Subtext>
+				<Subtext>The last name of the user.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -517,12 +133,116 @@
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2004" trending="false">
-			<Name>MyTableMyDiscreetColumn</Name>
-			<Description>My Discreet Column (My Table)</Description>
+		<Param id="10003" trending="false">
+			<Name>Users_FirstName</Name>
+			<Description>First Name (Users)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>An example column of type 'discreet'.</Subtext>
+				<Subtext>The first name of the user.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10004" trending="false">
+			<Name>Users_BirthDate</Name>
+			<Description>Birth Date (Users)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The birth date of the user.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type options="date">number</Type>
+			</Measurement>
+		</Param>
+
+		<!-- Data-Source Custom parameters -->
+		<Param id="10100">
+			<Name>Streams</Name>
+			<Description>Streams</Description>
+			<Type>array</Type>
+			<ArrayOptions index="0" options=";volatile">
+				<ColumnOption idx="0" pid="10101" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="10102" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="10103" type="retrieved" options="" />
+			</ArrayOptions>
+			<Information>
+				<Subtext>List of streams managed by the data-source.</Subtext>
+			</Information>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Data-Source Data</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="tab=columns:10101|0-10102|1-10103|2,width:100-100-100,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
+			</Measurement>
+		</Param>
+		<Param id="10101" trending="false">
+			<Name>Streams_Instance</Name>
+			<Description>Instance (Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10102" trending="false">
+			<Name>Streams_Name</Name>
+			<Description>Name (Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>This name of the stream.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="10103" trending="false">
+			<Name>Streams_AdminState</Name>
+			<Description>Admin State (Streams)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>Allows to configure the desired state of the stream.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -536,15 +256,11 @@
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Discreet 1</Display>
-						<Value>0</Value>
-					</Discreet>
-					<Discreet>
-						<Display>Discreet 2</Display>
+						<Display>Active</Display>
 						<Value>1</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Discreet 3</Display>
+						<Display>Idle</Display>
 						<Value>2</Value>
 					</Discreet>
 				</Discreets>
@@ -799,7 +515,7 @@
 		<QAction id="1000" name="Send InterApp Message" encoding="csharp" triggers="1000" />
 		<QAction id="1990" name="My Table - ContextMenu" encoding="csharp" triggers="1990" />
 
-		<QAction id="9000000" name="Process Incoming InterApp Messages" encoding="csharp" triggers="9000000"/>
+		<QAction id="9000000" name="Process Incoming InterApp Messages" encoding="csharp" triggers="9000000" />
 	</QActions>
 
 	<Groups>
