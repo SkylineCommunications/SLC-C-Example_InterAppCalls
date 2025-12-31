@@ -17,7 +17,7 @@
 	<SNMP includepages="true">auto</SNMP>
 	<ElementType>Example</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;----------;Custom Data;Data-Source Data;----------;Inter-App Communication" wideColumnPages="Custom Data;Data-Source Data"/>
+	<Display defaultPage="General" pageOrder="General;----------;Generic - DataMiner;Generic - DataSource;----------;Customer 1 - DataMiner;----------;Inter-App Communication" wideColumnPages=""/>
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
@@ -29,6 +29,19 @@
 			<Name>AfterStartup</Name>
 			<Description>After startup</Description>
 			<Type>dummy</Type>
+		</Param>
+		<Param id="3">
+			<Name>Title_End_Generic</Name>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<!--Note that by adding multiple positions,
+					the same title end can be re-used for closing different group boxes.
+					Indeed, Cube only uses the positions in order to potentially group a title begin to a title end.-->
+			</Display>
+			<Measurement>
+				<Type options="end">title</Type>
+			</Measurement>
 		</Param>
 		
 		<Param id="9" trending="false">
@@ -46,9 +59,12 @@
 					<![CDATA[
 This protocol demonstrates how to expose InterApp calls from an element to other DataMiner components (other elements, automation scripts, etc.).
 
-- The 'Custom Data' page contains example of custom parameters that can be configured via InterApp calls. By custom parameters, we mean parameters containing data fully managed on the DataMiner side (i.e. not retrieved from the any data-source). This means that when InterApp calls to manage such data comes in, we can right away validate and accept the data or not, and provide a response to the InterApp caller right away.
+- Generic pages contain parameters (and corresponding InterApp calls) that are useful in a generic way, meaning that they can be used by any user in any project.
+	- The 'Generic - DataMiner' page contains example of DataMiner parameters that can be configured via InterApp calls. By DataMiner parameters, we mean parameters containing data fully managed on the DataMiner side (i.e. not retrieved from the any data-source). This means that when InterApp calls to manage such data comes in, we can right away validate and accept the data or not, and provide a response to the InterApp caller right away.
+	- The 'Generic - DataSource' page contains examples of data-source parameters that can be configured via InterApp calls. By data-source parameters, we mean parameters containing data retrieved from a data-source. In this case, when InterApp calls to manage such data comes in, we need to forward the data to the data-source first, wait for confirmation from the data-source that the data has been accepted, and only then provide a response to the InterApp caller. This will therefore require more logic, buffering, post-validation, etc.
 
-- The 'DataSource Data' page contains examples of data-source parameters that can be configured via InterApp calls. By data-source parameters, we mean parameters containing data retrieved from a data-source. In this case, when InterApp calls to manage such data comes in, we need to forward the data to the data-source first, wait for confirmation from the data-source that the data has been accepted, and only then provide a response to the InterApp caller. This will therefore require more logic, buffering, etc.
+- Customer 1 pages contain parameters (and corresponding InterApp calls) that are only useful for customer 1 and therefore should be included in a dedicated NuGet package.
+	- The 'Customer 1 - DataMiner' page contains example of DataMiner parameters that can be configured via InterApp calls. These parameters and corresponding InterApp calls are only useful for customer 1.
 					]]>
 				</DefaultValue>
 			</Interprete>
@@ -67,40 +83,30 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Measurement>
 		</Param>
 		
-		<!-- DataMiner custom parameters -->
-		<Param id="2000">
-			<Name>Users</Name>
-			<Description>Users</Description>
-			<Type>array</Type>
-			<ArrayOptions index="0" options=";volatile">
-				<ColumnOption idx="0" pid="2001" type="retrieved" options="" />
-				<ColumnOption idx="1" pid="2002" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="2003" type="retrieved" options="" />
-				<ColumnOption idx="3" pid="2004" type="retrieved" options="" />
-			</ArrayOptions>
-			<Information>
-				<Subtext>This table allows to manage a list of users. This table is completely independent from any data-source.</Subtext>
-			</Information>
+		<!-- Generic DataMiner parameters (InterApp with direct validation & execution) -->
+		<Param id="1000">
+			<Name>Generic_DM_DirectValidation_TitleBegin</Name>
+			<Description>Generic - DataMiner - Direct Validation</Description>
+			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Custom Data</Page>
+						<Page>Generic - DataMiner</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3,width:100-100-100-100,sort:STRING-STRING-STRING-INT,lines:25,filter:true">table</Type>
+				<Type options="begin">title</Type>
 			</Measurement>
 		</Param>
-		<Param id="2001" trending="false">
-			<Name>Users_Instance</Name>
-			<Description>Instance (Users)</Description>
+		<Param id="1001" trending="false">
+			<Name>Generic_DM_DirectValidation_ConfigString</Name>
+			<Description>String Config (Generic - DM - Direct Validation)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -109,55 +115,23 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataMiner</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="2002" trending="false">
-			<Name>Users_LastName</Name>
-			<Description>Last Name (Users)</Description>
+		<Param id="1002" trending="false">
+			<Name>Generic_DM_DirectValidation_ConfigNumber</Name>
+			<Description>Number Config (Generic - DM - Direct Validation)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>The last name of the user.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="2003" trending="false">
-			<Name>Users_FirstName</Name>
-			<Description>First Name (Users)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>The first name of the user.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="2004" trending="false">
-			<Name>Users_BirthDate</Name>
-			<Description>Birth Date (Users)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>The birth date of the user.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -166,45 +140,117 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataMiner</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="date">number</Type>
+				<Type>number</Type>
 			</Measurement>
 		</Param>
-
-		<!-- Data-Source parameters -->
-		<Param id="10000">
-			<Name>Streams</Name>
-			<Description>Streams</Description>
-			<Type>array</Type>
-			<ArrayOptions index="0" options=";volatile">
-				<ColumnOption idx="0" pid="10001" type="retrieved" options="" />
-				<ColumnOption idx="1" pid="10002" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="10003" type="retrieved" options="" />
-			</ArrayOptions>
+		<Param id="1003" trending="false">
+			<Name>Generic_DM_DirectValidation_ConfigDiscreet</Name>
+			<Description>Discreet Config (Generic - DM - Direct Validation)</Description>
+			<Type>read</Type>
 			<Information>
-				<Subtext>List of streams managed by the data-source.</Subtext>
 			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Data-Source Data</Page>
+						<Page>Generic - DataMiner</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Blue</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Green</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Red</Display>
+						<Value>3</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1004" trending="false">
+			<Name>Generic_DM_DirectValidation_ConfigBool</Name>
+			<Description>Boolean Config (Generic - DM - Direct Validation)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataMiner</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>False</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>True</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		
+		<!-- Generic Data-Source parameters (InterApp with pre and post validation) -->
+		<Param id="5000">
+			<Name>Generic_DataSource_PostValidation_TitleBegin</Name>
+			<Description>Generic - DataSource - Post Validation</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataSource</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:10001|0-10002|1-10003|2,width:100-100-100,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="begin">title</Type>
 			</Measurement>
 		</Param>
-		<Param id="10001" trending="false">
-			<Name>Streams_Instance</Name>
-			<Description>Instance (Streams)</Description>
+		<Param id="5001" trending="false">
+			<Name>Generic_DataSource_PostValidation_ConfigString</Name>
+			<Description>String Config (Generic - DataSource - Post Validation)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -213,36 +259,167 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataSource</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="5002" trending="false">
+			<Name>Generic_DataSource_PostValidation_ConfigNumber</Name>
+			<Description>Number Config (Generic - DataSource - Post Validation)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataSource</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="5003" trending="false">
+			<Name>Generic_DataSource_PostValidation_ConfigDiscreet</Name>
+			<Description>Discreet Config (Generic - DataSource - Post Validation)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataSource</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Blue</Display>
+						<Value>1</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Green</Display>
+						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Red</Display>
+						<Value>3</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="5004" trending="false">
+			<Name>Generic_DataSource_PostValidation_ConfigBool</Name>
+			<Description>Boolean Config (Generic - DataSource - Post Validation)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataSource</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>False</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>True</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+
+		<!-- Customer 1 specific parameters (InterApp only useful for customer 1) -->
+		<Param id="10000">
+			<Name>Customer1_DM_DirectValidation_TitleBegin</Name>
+			<Description>Customer 1 - DataMiner - Direct Validation</Description>
+			<Type>fixed</Type>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Customer 1 - DataMiner</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type options="begin">title</Type>
+			</Measurement>
+		</Param>
+		<Param id="10001" trending="false">
+			<Name>Customer1_DM_DirectValidation_ConfigString</Name>
+			<Description>String Config (Customer 1 - DM - Direct Validation)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Customer 1 - DataMiner</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>string</Type>
 			</Measurement>
 		</Param>
 		<Param id="10002" trending="false">
-			<Name>Streams_Name</Name>
-			<Description>Name (Streams)</Description>
+			<Name>Customer1_DM_DirectValidation_ConfigNumber</Name>
+			<Description>Number Config (Customer 1 - DM - Direct Validation)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>This name of the stream.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="10003" trending="false">
-			<Name>Streams_AdminState</Name>
-			<Description>Admin State (Streams)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Allows to configure the desired state of the stream.</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>numeric text</RawType>
@@ -251,17 +428,88 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Interprete>
 			<Display>
 				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Customer 1 - DataMiner</Page>
+						<Column>0</Column>
+						<Row>2</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>number</Type>
+			</Measurement>
+		</Param>
+		<Param id="10003" trending="false">
+			<Name>Customer1_DM_DirectValidation_ConfigDiscreet</Name>
+			<Description>Discreet Config (Customer 1 - DM - Direct Validation)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Customer 1 - DataMiner</Page>
+						<Column>0</Column>
+						<Row>3</Row>
+					</Position>
+				</Positions>
 			</Display>
 			<Measurement>
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Active</Display>
+						<Display>Blue</Display>
 						<Value>1</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Idle</Display>
+						<Display>Green</Display>
 						<Value>2</Value>
+					</Discreet>
+					<Discreet>
+						<Display>Red</Display>
+						<Value>3</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="10004" trending="false">
+			<Name>Customer1_DM_DirectValidation_ConfigBool</Name>
+			<Description>Boolean Config (Customer 1 - DM - Direct Validation)</Description>
+			<Type>read</Type>
+			<Information>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Customer 1 - DataMiner</Page>
+						<Column>0</Column>
+						<Row>4</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>discreet</Type>
+				<Discreets>
+					<Discreet>
+						<Display>False</Display>
+						<Value>0</Value>
+					</Discreet>
+					<Discreet>
+						<Display>True</Display>
+						<Value>1</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -272,7 +520,10 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			<Name>IAC_Generic_Receiver</Name>
 			<Description>Generic Inter App Receiver</Description>
 			<Information>
-				<Subtext>Contains the raw serialized InterApp Message sent from an external source.</Subtext>
+				<Subtext>
+					<![CDATA[Contains the raw serialized InterApp Message sent from an external source.
+This receiver will be used for generic InterApp calls. They are all included in the same InterApp NuGet package and group all InterApp calls which enhance the product in a generic way, as in, potentially useful for any user.]]>
+				</Subtext>
 			</Information>
 			<Type>read</Type>
 			<Interprete>
@@ -295,10 +546,71 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Measurement>
 		</Param>
 		<Param id="9000001" trending="false">
-			<Name>IAC_Generic_Response</Name>
+			<Name>IAC_Generic_Responder</Name>
 			<Description>Generic Inter App Responder</Description>
 			<Information>
-				<Subtext>Contains the raw serialized InterApp Message that serves as a response to an external source.</Subtext>
+				<Subtext>
+					<![CDATA[Contains the raw serialized InterApp Message that serves as a response to an external source.
+This responder will be used for generic InterApp calls. They are all included in the same InterApp NuGet package and group all InterApp calls which enhance the product in a generic way, as in, potentially useful for any user.]]>
+				</Subtext>
+			</Information>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Inter-App Communication</Page>
+						<Column>0</Column>
+						<Row>1</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9000002" trending="false">
+			<Name>IAC_Customer1Project1_Receiver</Name>
+			<Description>Inter App Receiver for Customer 1 Project 1</Description>
+			<Information>
+				<Subtext>
+					<![CDATA[Contains the raw serialized InterApp Message sent from an external source.
+This receiver will be used for InterApp calls specific to project 1 of customer 1. They are included in a separate InterApp NuGet package and group all InterApp calls which are only useful in the scope of project 1 from customer 1.]]>
+				</Subtext>
+			</Information>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<LengthType>next param</LengthType>
+				<Type>string</Type>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Inter-App Communication</Page>
+						<Column>0</Column>
+						<Row>0</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type>string</Type>
+			</Measurement>
+		</Param>
+		<Param id="9000003" trending="false">
+			<Name>IAC_Customer1Project1_Responder</Name>
+			<Description>Inter App Responder for Customer 1 Project 1</Description>
+			<Information>
+				<Subtext>
+					<![CDATA[Contains the raw serialized InterApp Message that serves as a response to an external source.
+This responder will be used for InterApp calls specific to project 1 of customer 1. They are included in a separate InterApp NuGet package and group all InterApp calls which are only useful in the scope of project 1 from customer 1.]]>
+				</Subtext>
 			</Information>
 			<Type>read</Type>
 			<Interprete>
@@ -510,9 +822,9 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup QAction" encoding="csharp" triggers="2" />
-		
+
 		<QAction id="10" name="Mark rows as confirmed" encoding="csharp" triggers="10" />
-		
+
 		<QAction id="1000" name="Send InterApp Message" encoding="csharp" triggers="1000" />
 		<QAction id="1990" name="My Table - ContextMenu" encoding="csharp" triggers="1990" />
 
@@ -528,23 +840,6 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Action>2</Action>
 			</Content>
 		</Group>
-		
-		<Group id="10">
-			<Name>Mark Rows as Confirmed</Name>
-			<Description>Mark Rows as Confirmed</Description>
-			<Type>poll action</Type>
-			<Content>
-				<Action>10</Action>
-			</Content>
-		</Group>
-		<Group id="11">
-			<Name>Simulated Set</Name>
-			<Description>Simulated Set</Description>
-			<Type>poll action</Type>
-			<Content>
-				<Action>10</Action>
-			</Content>
-		</Group>
 	</Groups>
 
 	<Triggers>
@@ -555,14 +850,6 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			<Type>action</Type>
 			<Content>
 				<Id>1</Id>
-			</Content>
-		</Trigger>
-		
-		<Trigger id="11">
-			<Name>Start Send Command</Name>
-			<Type>action</Type>
-			<Content>
-				<Id>11</Id>
 			</Content>
 		</Trigger>
 	</Triggers>
@@ -577,17 +864,6 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			<Name>After Startup QAction</Name>
 			<Type>run actions</Type>
 			<On id="2">parameter</On>
-		</Action>
-		
-		<Action id="10">
-			<Name>Mark Rows as Confirmed</Name>
-			<On id="10">parameter</On>
-			<Type>run actions</Type>
-		</Action>
-		<Action id="11">
-			<Name>Add Command to Stack</Name>
-			<On id="11">group</On>
-			<Type>execute next</Type>
 		</Action>
 	</Actions>
 
