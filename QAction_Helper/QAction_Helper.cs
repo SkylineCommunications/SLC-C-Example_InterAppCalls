@@ -198,7 +198,6 @@ public interface SLProtocolExt : SLProtocol
 	/// <summary>PID: 9000100</summary>
 	Iac_messagesQActionTable iac_messages { get; set; }
 	object Afterstartup_dummy { get; set; }
-	object Title_end_generic__fixed { get; set; }
 	object Readme_9 { get; set; }
 	object Readme { get; set; }
 	object Generic_dm_directvalidation_titlebegin__fixed { get; set; }
@@ -258,8 +257,6 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public Iac_messagesQActionTable iac_messages { get; set; }
 	/// <summary>PID: 2  | Type: dummy</summary>
 	public System.Object Afterstartup_dummy {get { return GetParameter(2); }set { SetParameter(2, value); }}
-	/// <summary>PID: 3  | Type: fixed</summary>
-	public System.Object Title_end_generic__fixed {get { return GetParameter(3); }set { SetParameter(3, value); }}
 	/// <summary>PID: 9  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Readme_9 {get { return GetParameter(9); }set { SetParameter(9, value); }}
