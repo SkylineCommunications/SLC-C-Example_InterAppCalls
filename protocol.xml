@@ -73,7 +73,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			<Description>Users</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0" options=";volatile">
-				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="0" pid="2001" type="retrieved" options="" />
 				<ColumnOption idx="1" pid="2002" type="retrieved" options="" />
 				<ColumnOption idx="2" pid="2003" type="retrieved" options="" />
 				<ColumnOption idx="3" pid="2004" type="retrieved" options="" />
