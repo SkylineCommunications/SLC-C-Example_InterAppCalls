@@ -67,16 +67,16 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Measurement>
 		</Param>
 		
-		<!-- DataMiner Custom parameters -->
-		<Param id="10000">
+		<!-- DataMiner custom parameters -->
+		<Param id="2000">
 			<Name>Users</Name>
 			<Description>Users</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0" options=";volatile">
-				<ColumnOption idx="0" pid="10001" type="retrieved" options=""/>
-				<ColumnOption idx="1" pid="10002" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="10003" type="retrieved" options="" />
-				<ColumnOption idx="3" pid="10004" type="retrieved" options="" />
+				<ColumnOption idx="0" pid="2001" type="retrieved" options=""/>
+				<ColumnOption idx="1" pid="2002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="2003" type="retrieved" options="" />
+				<ColumnOption idx="3" pid="2004" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>This table allows to manage a list of users. This table is completely independent from any data-source.</Subtext>
@@ -92,10 +92,10 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:10001|0-10002|1-10003|2-10004|3,width:100-100-100-100,sort:STRING-STRING-STRING-INT,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:2001|0-2002|1-2003|2-2004|3,width:100-100-100-100,sort:STRING-STRING-STRING-INT,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
-		<Param id="10001" trending="false">
+		<Param id="2001" trending="false">
 			<Name>Users_Instance</Name>
 			<Description>Instance (Users)</Description>
 			<Type>read</Type>
@@ -114,7 +114,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10002" trending="false">
+		<Param id="2002" trending="false">
 			<Name>Users_LastName</Name>
 			<Description>Last Name (Users)</Description>
 			<Type>read</Type>
@@ -133,7 +133,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10003" trending="false">
+		<Param id="2003" trending="false">
 			<Name>Users_FirstName</Name>
 			<Description>First Name (Users)</Description>
 			<Type>read</Type>
@@ -152,7 +152,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10004" trending="false">
+		<Param id="2004" trending="false">
 			<Name>Users_BirthDate</Name>
 			<Description>Birth Date (Users)</Description>
 			<Type>read</Type>
@@ -172,15 +172,15 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Measurement>
 		</Param>
 
-		<!-- Data-Source Custom parameters -->
-		<Param id="10100">
+		<!-- Data-Source parameters -->
+		<Param id="10000">
 			<Name>Streams</Name>
 			<Description>Streams</Description>
 			<Type>array</Type>
 			<ArrayOptions index="0" options=";volatile">
-				<ColumnOption idx="0" pid="10101" type="retrieved" options="" />
-				<ColumnOption idx="1" pid="10102" type="retrieved" options="" />
-				<ColumnOption idx="2" pid="10103" type="retrieved" options="" />
+				<ColumnOption idx="0" pid="10001" type="retrieved" options="" />
+				<ColumnOption idx="1" pid="10002" type="retrieved" options="" />
+				<ColumnOption idx="2" pid="10003" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>List of streams managed by the data-source.</Subtext>
@@ -196,10 +196,10 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:10101|0-10102|1-10103|2,width:100-100-100,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:10001|0-10002|1-10003|2,width:100-100-100,sort:STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
-		<Param id="10101" trending="false">
+		<Param id="10001" trending="false">
 			<Name>Streams_Instance</Name>
 			<Description>Instance (Streams)</Description>
 			<Type>read</Type>
@@ -218,7 +218,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10102" trending="false">
+		<Param id="10002" trending="false">
 			<Name>Streams_Name</Name>
 			<Description>Name (Streams)</Description>
 			<Type>read</Type>
@@ -237,7 +237,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10103" trending="false">
+		<Param id="10003" trending="false">
 			<Name>Streams_AdminState</Name>
 			<Description>Admin State (Streams)</Description>
 			<Type>read</Type>
@@ -267,6 +267,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 			</Measurement>
 		</Param>
 		
+		<!-- InterApp parameters -->
 		<Param id="9000000" trending="false">
 			<Name>IAC_Generic_Receiver</Name>
 			<Description>Generic Inter App Receiver</Description>
