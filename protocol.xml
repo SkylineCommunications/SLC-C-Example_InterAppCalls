@@ -709,7 +709,8 @@ This responder will be used for InterApp calls specific to project 1 of customer
 			<Name>IAC_MessagesGuid</Name>
 			<Description>GUID [IDX] (Inter-App Messages)</Description>
 			<Information>
-				<Subtext>This is the key used internally by DataMiner to identify the table entries.</Subtext>
+				<Subtext><![CDATA[This is the key used internally by DataMiner to identify the table entries.
+It corresponds to the GUID of the coming in Inter-App Request Message.]]></Subtext>
 			</Information>
 			<Type>read</Type>
 			<Interprete>
@@ -762,7 +763,8 @@ This responder will be used for InterApp calls specific to project 1 of customer
 			<Description>Request (Inter-App Messages)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext>The incoming InterApp message that triggered this.</Subtext>
+				<Subtext><![CDATA[The incoming InterApp message that triggered this.
+This is there for debugging purposes, it is not really used by the connector logic.]]></Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
