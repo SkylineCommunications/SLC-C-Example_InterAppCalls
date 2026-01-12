@@ -60,6 +60,8 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 	All specific to customer 1 InterApp calls should be bundled in a dedicated to customer 1 InterApp NuGet package.
 	- The 'Customer 1 - DataMiner' page contains example of DataMiner parameters that can be configured via InterApp calls.
 	   These parameters and corresponding InterApp calls are only useful for customer 1.
+
+For each InterApp call exposed by this protocol, there is also a Test button to demonstrate how to call the InterApp call directly from within the exposing element itself.
 					]]>
 				</DefaultValue>
 			</Interprete>
@@ -97,7 +99,38 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type options="begin">title</Type>
 			</Measurement>
 		</Param>
-		<Param id="1001" trending="false">
+		<Param id="1001">
+			<Name>Generic_DM_DirectValidation_ButtonTest</Name>
+			<Type>write</Type>
+			<Information>
+				<Subtext>Allows to demonstrate how to call the InterAppCall directly from within the exposing element.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataMiner</Page>
+						<Column>0</Column>
+						<Row>5</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Test</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="1002" trending="false">
 			<Name>Generic_DM_DirectValidation_ConfigString</Name>
 			<Description>String Config (Generic - DM - Direct Validation)</Description>
 			<Type>read</Type>
@@ -123,7 +156,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="1002" trending="false">
+		<Param id="1003" trending="false">
 			<Name>Generic_DM_DirectValidation_ConfigNumber</Name>
 			<Description>Number Config (Generic - DM - Direct Validation)</Description>
 			<Type>read</Type>
@@ -154,7 +187,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-		<Param id="1003" trending="false">
+		<Param id="1004" trending="false">
 			<Name>Generic_DM_DirectValidation_ConfigDiscreet</Name>
 			<Description>Discreet Config (Generic - DM - Direct Validation)</Description>
 			<Type>read</Type>
@@ -194,7 +227,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="1004" trending="false">
+		<Param id="1005" trending="false">
 			<Name>Generic_DM_DirectValidation_ConfigBool</Name>
 			<Description>Boolean Config (Generic - DM - Direct Validation)</Description>
 			<Type>read</Type>
@@ -250,13 +283,46 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 				<Type options="begin">title</Type>
 			</Measurement>
 		</Param>
-		<Param id="5001" trending="false">
+		<Param id="5001">
+			<Name>Generic_DataSource_PostValidation_ButtonTest</Name>
+			<Type>write</Type>
+			<Information>
+				<Subtext>Allows to demonstrate how to call the InterAppCall directly from within the exposing element.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Generic - DataSource</Page>
+						<Column>0</Column>
+						<Row>5</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Test</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="5002" trending="false">
 			<Name>Generic_DataSource_PostValidation_ConfigString</Name>
 			<Description>String Config (Generic - DataSource - Post Validation)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext><![CDATA[This is a string configuration parameter that can be configured on the data-source via InterApp calls.
-The InterApp executor will proceed with pre-validation and execution but will still require post-validation to verify that the data-source was properly updated.]]></Subtext>
+				<Subtext>
+					<![CDATA[This is a string configuration parameter that can be configured on the data-source via InterApp calls.
+The InterApp executor will proceed with pre-validation and execution but will still require post-validation to verify that the data-source was properly updated.]]>
+				</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>
@@ -277,7 +343,7 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="5002" trending="false">
+		<Param id="5003" trending="false">
 			<Name>Generic_DataSource_PostValidation_ConfigNumber</Name>
 			<Description>Number Config (Generic - DataSource - Post Validation)</Description>
 			<Type>read</Type>
@@ -311,7 +377,7 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-		<Param id="5003" trending="false">
+		<Param id="5004" trending="false">
 			<Name>Generic_DataSource_PostValidation_ConfigDiscreet</Name>
 			<Description>Discreet Config (Generic - DataSource - Post Validation)</Description>
 			<Type>read</Type>
@@ -354,7 +420,7 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="5004" trending="false">
+		<Param id="5005" trending="false">
 			<Name>Generic_DataSource_PostValidation_ConfigBool</Name>
 			<Description>Boolean Config (Generic - DataSource - Post Validation)</Description>
 			<Type>read</Type>
@@ -413,7 +479,38 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				<Type options="begin">title</Type>
 			</Measurement>
 		</Param>
-		<Param id="10001" trending="false">
+		<Param id="10001">
+			<Name>Customer1_DM_DirectValidation_ButtonTest</Name>
+			<Type>write</Type>
+			<Information>
+				<Subtext>Allows to demonstrate how to call the InterAppCall directly from within the exposing element.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Positions>
+					<Position>
+						<Page>Customer 1 - DataMiner</Page>
+						<Column>0</Column>
+						<Row>5</Row>
+					</Position>
+				</Positions>
+			</Display>
+			<Measurement>
+				<Type width="110">button</Type>
+				<Discreets>
+					<Discreet>
+						<Display>Test</Display>
+						<Value>1</Value>
+					</Discreet>
+				</Discreets>
+			</Measurement>
+		</Param>
+		<Param id="10002" trending="false">
 			<Name>Customer1_DM_DirectValidation_ConfigString</Name>
 			<Description>String Config (Customer 1 - DM - Direct Validation)</Description>
 			<Type>read</Type>
@@ -442,7 +539,7 @@ Therfore, corresponding InterApp calls will be bundled in a customer 1 dedicated
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="10002" trending="false">
+		<Param id="10003" trending="false">
 			<Name>Customer1_DM_DirectValidation_ConfigNumber</Name>
 			<Description>Number Config (Customer 1 - DM - Direct Validation)</Description>
 			<Type>read</Type>
@@ -476,7 +573,7 @@ Therfore, corresponding InterApp calls will be bundled in a customer 1 dedicated
 				<Type>number</Type>
 			</Measurement>
 		</Param>
-		<Param id="10003" trending="false">
+		<Param id="10004" trending="false">
 			<Name>Customer1_DM_DirectValidation_ConfigDiscreet</Name>
 			<Description>Discreet Config (Customer 1 - DM - Direct Validation)</Description>
 			<Type>read</Type>
@@ -519,7 +616,7 @@ Therfore, corresponding InterApp calls will be bundled in a customer 1 dedicated
 				</Discreets>
 			</Measurement>
 		</Param>
-		<Param id="10004" trending="false">
+		<Param id="10005" trending="false">
 			<Name>Customer1_DM_DirectValidation_ConfigBool</Name>
 			<Description>Boolean Config (Customer 1 - DM - Direct Validation)</Description>
 			<Type>read</Type>
@@ -711,8 +808,10 @@ This responder will be used for InterApp calls specific to project 1 of customer
 			<Name>IAC_MessagesGuid</Name>
 			<Description>GUID [IDX] (Inter-App Messages)</Description>
 			<Information>
-				<Subtext><![CDATA[This is the key used internally by DataMiner to identify the table entries.
-It corresponds to the GUID of the coming in Inter-App Request Message.]]></Subtext>
+				<Subtext>
+					<![CDATA[This is the key used internally by DataMiner to identify the table entries.
+It corresponds to the GUID of the coming in Inter-App Request Message.]]>
+				</Subtext>
 			</Information>
 			<Type>read</Type>
 			<Interprete>
@@ -765,8 +864,10 @@ It corresponds to the GUID of the coming in Inter-App Request Message.]]></Subte
 			<Description>Request (Inter-App Messages)</Description>
 			<Type>read</Type>
 			<Information>
-				<Subtext><![CDATA[The incoming InterApp message that triggered this.
-This is there for debugging purposes, it is not really used by the connector logic.]]></Subtext>
+				<Subtext>
+					<![CDATA[The incoming InterApp message that triggered this.
+This is there for debugging purposes, it is not really used by the connector logic.]]>
+				</Subtext>
 			</Information>
 			<Interprete>
 				<RawType>other</RawType>

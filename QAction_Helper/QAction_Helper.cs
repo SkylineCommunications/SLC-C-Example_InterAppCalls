@@ -13,66 +13,66 @@ public static class Parameter
 	public const int readme_9 = 9;
 	/// <summary>PID: 9 | Type: read</summary>
 	public const int readme = 9;
-	/// <summary>PID: 1001 | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int generic_dm_directvalidation_configstring_1001 = 1001;
-	/// <summary>PID: 1001 | Type: read</summary>
-	public const int generic_dm_directvalidation_configstring = 1001;
 	/// <summary>PID: 1002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int generic_dm_directvalidation_confignumber_1002 = 1002;
+	public const int generic_dm_directvalidation_configstring_1002 = 1002;
 	/// <summary>PID: 1002 | Type: read</summary>
-	public const int generic_dm_directvalidation_confignumber = 1002;
+	public const int generic_dm_directvalidation_configstring = 1002;
 	/// <summary>PID: 1003 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int generic_dm_directvalidation_configdiscreet_1003 = 1003;
+	public const int generic_dm_directvalidation_confignumber_1003 = 1003;
 	/// <summary>PID: 1003 | Type: read</summary>
-	public const int generic_dm_directvalidation_configdiscreet = 1003;
+	public const int generic_dm_directvalidation_confignumber = 1003;
 	/// <summary>PID: 1004 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int generic_dm_directvalidation_configbool_1004 = 1004;
+	public const int generic_dm_directvalidation_configdiscreet_1004 = 1004;
 	/// <summary>PID: 1004 | Type: read</summary>
-	public const int generic_dm_directvalidation_configbool = 1004;
-	/// <summary>PID: 5001 | Type: read</summary>
+	public const int generic_dm_directvalidation_configdiscreet = 1004;
+	/// <summary>PID: 1005 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int generic_datasource_postvalidation_configstring_5001 = 5001;
-	/// <summary>PID: 5001 | Type: read</summary>
-	public const int generic_datasource_postvalidation_configstring = 5001;
+	public const int generic_dm_directvalidation_configbool_1005 = 1005;
+	/// <summary>PID: 1005 | Type: read</summary>
+	public const int generic_dm_directvalidation_configbool = 1005;
 	/// <summary>PID: 5002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int generic_datasource_postvalidation_confignumber_5002 = 5002;
+	public const int generic_datasource_postvalidation_configstring_5002 = 5002;
 	/// <summary>PID: 5002 | Type: read</summary>
-	public const int generic_datasource_postvalidation_confignumber = 5002;
+	public const int generic_datasource_postvalidation_configstring = 5002;
 	/// <summary>PID: 5003 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int generic_datasource_postvalidation_configdiscreet_5003 = 5003;
+	public const int generic_datasource_postvalidation_confignumber_5003 = 5003;
 	/// <summary>PID: 5003 | Type: read</summary>
-	public const int generic_datasource_postvalidation_configdiscreet = 5003;
+	public const int generic_datasource_postvalidation_confignumber = 5003;
 	/// <summary>PID: 5004 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int generic_datasource_postvalidation_configbool_5004 = 5004;
+	public const int generic_datasource_postvalidation_configdiscreet_5004 = 5004;
 	/// <summary>PID: 5004 | Type: read</summary>
-	public const int generic_datasource_postvalidation_configbool = 5004;
-	/// <summary>PID: 10001 | Type: read</summary>
+	public const int generic_datasource_postvalidation_configdiscreet = 5004;
+	/// <summary>PID: 5005 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int customer1_dm_directvalidation_configstring_10001 = 10001;
-	/// <summary>PID: 10001 | Type: read</summary>
-	public const int customer1_dm_directvalidation_configstring = 10001;
+	public const int generic_datasource_postvalidation_configbool_5005 = 5005;
+	/// <summary>PID: 5005 | Type: read</summary>
+	public const int generic_datasource_postvalidation_configbool = 5005;
 	/// <summary>PID: 10002 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int customer1_dm_directvalidation_confignumber_10002 = 10002;
+	public const int customer1_dm_directvalidation_configstring_10002 = 10002;
 	/// <summary>PID: 10002 | Type: read</summary>
-	public const int customer1_dm_directvalidation_confignumber = 10002;
+	public const int customer1_dm_directvalidation_configstring = 10002;
 	/// <summary>PID: 10003 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int customer1_dm_directvalidation_configdiscreet_10003 = 10003;
+	public const int customer1_dm_directvalidation_confignumber_10003 = 10003;
 	/// <summary>PID: 10003 | Type: read</summary>
-	public const int customer1_dm_directvalidation_configdiscreet = 10003;
+	public const int customer1_dm_directvalidation_confignumber = 10003;
 	/// <summary>PID: 10004 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public const int customer1_dm_directvalidation_configbool_10004 = 10004;
+	public const int customer1_dm_directvalidation_configdiscreet_10004 = 10004;
 	/// <summary>PID: 10004 | Type: read</summary>
-	public const int customer1_dm_directvalidation_configbool = 10004;
+	public const int customer1_dm_directvalidation_configdiscreet = 10004;
+	/// <summary>PID: 10005 | Type: read</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public const int customer1_dm_directvalidation_configbool_10005 = 10005;
+	/// <summary>PID: 10005 | Type: read</summary>
+	public const int customer1_dm_directvalidation_configbool = 10005;
 	/// <summary>PID: 9000000 | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public const int iac_generic_receiver_9000000 = 9000000;
@@ -95,6 +95,21 @@ public static class Parameter
 	public const int iac_customer1project1_responder = 9000003;
 	public class Write
 	{
+		/// <summary>PID: 1001 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int generic_dm_directvalidation_buttontest_1001 = 1001;
+		/// <summary>PID: 1001 | Type: write</summary>
+		public const int generic_dm_directvalidation_buttontest = 1001;
+		/// <summary>PID: 5001 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int generic_datasource_postvalidation_buttontest_5001 = 5001;
+		/// <summary>PID: 5001 | Type: write</summary>
+		public const int generic_datasource_postvalidation_buttontest = 5001;
+		/// <summary>PID: 10001 | Type: write</summary>
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public const int customer1_dm_directvalidation_buttontest_10001 = 10001;
+		/// <summary>PID: 10001 | Type: write</summary>
+		public const int customer1_dm_directvalidation_buttontest = 10001;
 	}
 	public class Iac_messages
 	{
@@ -187,6 +202,12 @@ public static class Parameter
 }
 public class WriteParameters
 {
+	/// <summary>PID: 1001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Generic_dm_directvalidation_buttontest {get { return Protocol.GetParameter(1001); }set { Protocol.SetParameter(1001, value); }}
+	/// <summary>PID: 5001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Generic_datasource_postvalidation_buttontest {get { return Protocol.GetParameter(5001); }set { Protocol.SetParameter(5001, value); }}
+	/// <summary>PID: 10001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Customer1_dm_directvalidation_buttontest {get { return Protocol.GetParameter(10001); }set { Protocol.SetParameter(10001, value); }}
 	public SLProtocolExt Protocol;
 	public WriteParameters(SLProtocolExt protocol)
 	{
@@ -201,31 +222,37 @@ public interface SLProtocolExt : SLProtocol
 	object Readme_9 { get; set; }
 	object Readme { get; set; }
 	object Generic_dm_directvalidation_titlebegin__fixed { get; set; }
-	object Generic_dm_directvalidation_configstring_1001 { get; set; }
+	object Generic_dm_directvalidation_buttontest_1001 { get; set; }
+	object Generic_dm_directvalidation_buttontest { get; set; }
+	object Generic_dm_directvalidation_configstring_1002 { get; set; }
 	object Generic_dm_directvalidation_configstring { get; set; }
-	object Generic_dm_directvalidation_confignumber_1002 { get; set; }
+	object Generic_dm_directvalidation_confignumber_1003 { get; set; }
 	object Generic_dm_directvalidation_confignumber { get; set; }
-	object Generic_dm_directvalidation_configdiscreet_1003 { get; set; }
+	object Generic_dm_directvalidation_configdiscreet_1004 { get; set; }
 	object Generic_dm_directvalidation_configdiscreet { get; set; }
-	object Generic_dm_directvalidation_configbool_1004 { get; set; }
+	object Generic_dm_directvalidation_configbool_1005 { get; set; }
 	object Generic_dm_directvalidation_configbool { get; set; }
 	object Generic_datasource_postvalidation_titlebegin__fixed { get; set; }
-	object Generic_datasource_postvalidation_configstring_5001 { get; set; }
+	object Generic_datasource_postvalidation_buttontest_5001 { get; set; }
+	object Generic_datasource_postvalidation_buttontest { get; set; }
+	object Generic_datasource_postvalidation_configstring_5002 { get; set; }
 	object Generic_datasource_postvalidation_configstring { get; set; }
-	object Generic_datasource_postvalidation_confignumber_5002 { get; set; }
+	object Generic_datasource_postvalidation_confignumber_5003 { get; set; }
 	object Generic_datasource_postvalidation_confignumber { get; set; }
-	object Generic_datasource_postvalidation_configdiscreet_5003 { get; set; }
+	object Generic_datasource_postvalidation_configdiscreet_5004 { get; set; }
 	object Generic_datasource_postvalidation_configdiscreet { get; set; }
-	object Generic_datasource_postvalidation_configbool_5004 { get; set; }
+	object Generic_datasource_postvalidation_configbool_5005 { get; set; }
 	object Generic_datasource_postvalidation_configbool { get; set; }
 	object Customer1_dm_directvalidation_titlebegin__fixed { get; set; }
-	object Customer1_dm_directvalidation_configstring_10001 { get; set; }
+	object Customer1_dm_directvalidation_buttontest_10001 { get; set; }
+	object Customer1_dm_directvalidation_buttontest { get; set; }
+	object Customer1_dm_directvalidation_configstring_10002 { get; set; }
 	object Customer1_dm_directvalidation_configstring { get; set; }
-	object Customer1_dm_directvalidation_confignumber_10002 { get; set; }
+	object Customer1_dm_directvalidation_confignumber_10003 { get; set; }
 	object Customer1_dm_directvalidation_confignumber { get; set; }
-	object Customer1_dm_directvalidation_configdiscreet_10003 { get; set; }
+	object Customer1_dm_directvalidation_configdiscreet_10004 { get; set; }
 	object Customer1_dm_directvalidation_configdiscreet { get; set; }
-	object Customer1_dm_directvalidation_configbool_10004 { get; set; }
+	object Customer1_dm_directvalidation_configbool_10005 { get; set; }
 	object Customer1_dm_directvalidation_configbool { get; set; }
 	object Iac_generic_receiver_9000000 { get; set; }
 	object Iac_generic_receiver { get; set; }
@@ -264,70 +291,82 @@ public class ConcreteSLProtocolExt : ConcreteSLProtocol, SLProtocolExt
 	public System.Object Readme {get { return GetParameter(9); }set { SetParameter(9, value); }}
 	/// <summary>PID: 1000  | Type: fixed</summary>
 	public System.Object Generic_dm_directvalidation_titlebegin__fixed {get { return GetParameter(1000); }set { SetParameter(1000, value); }}
-	/// <summary>PID: 1001  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Generic_dm_directvalidation_configstring_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
-	/// <summary>PID: 1001  | Type: read</summary>
-	public System.Object Generic_dm_directvalidation_configstring {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
+	/// <summary>PID: 1001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Generic_dm_directvalidation_buttontest_1001 {get { return GetParameter(1001); }set { SetParameter(1001, value); }}
+	/// <summary>PID: 1001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Generic_dm_directvalidation_buttontest {get { return Write.Generic_dm_directvalidation_buttontest; }set { Write.Generic_dm_directvalidation_buttontest = value; }}
 	/// <summary>PID: 1002  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Generic_dm_directvalidation_confignumber_1002 {get { return GetParameter(1002); }set { SetParameter(1002, value); }}
+	public System.Object Generic_dm_directvalidation_configstring_1002 {get { return GetParameter(1002); }set { SetParameter(1002, value); }}
 	/// <summary>PID: 1002  | Type: read</summary>
-	public System.Object Generic_dm_directvalidation_confignumber {get { return GetParameter(1002); }set { SetParameter(1002, value); }}
-	/// <summary>PID: 1003  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
+	public System.Object Generic_dm_directvalidation_configstring {get { return GetParameter(1002); }set { SetParameter(1002, value); }}
+	/// <summary>PID: 1003  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Generic_dm_directvalidation_configdiscreet_1003 {get { return GetParameter(1003); }set { SetParameter(1003, value); }}
-	/// <summary>PID: 1003  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
-	public System.Object Generic_dm_directvalidation_configdiscreet {get { return GetParameter(1003); }set { SetParameter(1003, value); }}
-	/// <summary>PID: 1004  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	public System.Object Generic_dm_directvalidation_confignumber_1003 {get { return GetParameter(1003); }set { SetParameter(1003, value); }}
+	/// <summary>PID: 1003  | Type: read</summary>
+	public System.Object Generic_dm_directvalidation_confignumber {get { return GetParameter(1003); }set { SetParameter(1003, value); }}
+	/// <summary>PID: 1004  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Generic_dm_directvalidation_configbool_1004 {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
-	/// <summary>PID: 1004  | Type: read | DISCREETS: False = 0, True = 1</summary>
-	public System.Object Generic_dm_directvalidation_configbool {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
+	public System.Object Generic_dm_directvalidation_configdiscreet_1004 {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
+	/// <summary>PID: 1004  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
+	public System.Object Generic_dm_directvalidation_configdiscreet {get { return GetParameter(1004); }set { SetParameter(1004, value); }}
+	/// <summary>PID: 1005  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Generic_dm_directvalidation_configbool_1005 {get { return GetParameter(1005); }set { SetParameter(1005, value); }}
+	/// <summary>PID: 1005  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	public System.Object Generic_dm_directvalidation_configbool {get { return GetParameter(1005); }set { SetParameter(1005, value); }}
 	/// <summary>PID: 5000  | Type: fixed</summary>
 	public System.Object Generic_datasource_postvalidation_titlebegin__fixed {get { return GetParameter(5000); }set { SetParameter(5000, value); }}
-	/// <summary>PID: 5001  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Generic_datasource_postvalidation_configstring_5001 {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
-	/// <summary>PID: 5001  | Type: read</summary>
-	public System.Object Generic_datasource_postvalidation_configstring {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
+	/// <summary>PID: 5001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Generic_datasource_postvalidation_buttontest_5001 {get { return GetParameter(5001); }set { SetParameter(5001, value); }}
+	/// <summary>PID: 5001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Generic_datasource_postvalidation_buttontest {get { return Write.Generic_datasource_postvalidation_buttontest; }set { Write.Generic_datasource_postvalidation_buttontest = value; }}
 	/// <summary>PID: 5002  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Generic_datasource_postvalidation_confignumber_5002 {get { return GetParameter(5002); }set { SetParameter(5002, value); }}
+	public System.Object Generic_datasource_postvalidation_configstring_5002 {get { return GetParameter(5002); }set { SetParameter(5002, value); }}
 	/// <summary>PID: 5002  | Type: read</summary>
-	public System.Object Generic_datasource_postvalidation_confignumber {get { return GetParameter(5002); }set { SetParameter(5002, value); }}
-	/// <summary>PID: 5003  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
+	public System.Object Generic_datasource_postvalidation_configstring {get { return GetParameter(5002); }set { SetParameter(5002, value); }}
+	/// <summary>PID: 5003  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Generic_datasource_postvalidation_configdiscreet_5003 {get { return GetParameter(5003); }set { SetParameter(5003, value); }}
-	/// <summary>PID: 5003  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
-	public System.Object Generic_datasource_postvalidation_configdiscreet {get { return GetParameter(5003); }set { SetParameter(5003, value); }}
-	/// <summary>PID: 5004  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	public System.Object Generic_datasource_postvalidation_confignumber_5003 {get { return GetParameter(5003); }set { SetParameter(5003, value); }}
+	/// <summary>PID: 5003  | Type: read</summary>
+	public System.Object Generic_datasource_postvalidation_confignumber {get { return GetParameter(5003); }set { SetParameter(5003, value); }}
+	/// <summary>PID: 5004  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Generic_datasource_postvalidation_configbool_5004 {get { return GetParameter(5004); }set { SetParameter(5004, value); }}
-	/// <summary>PID: 5004  | Type: read | DISCREETS: False = 0, True = 1</summary>
-	public System.Object Generic_datasource_postvalidation_configbool {get { return GetParameter(5004); }set { SetParameter(5004, value); }}
+	public System.Object Generic_datasource_postvalidation_configdiscreet_5004 {get { return GetParameter(5004); }set { SetParameter(5004, value); }}
+	/// <summary>PID: 5004  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
+	public System.Object Generic_datasource_postvalidation_configdiscreet {get { return GetParameter(5004); }set { SetParameter(5004, value); }}
+	/// <summary>PID: 5005  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Generic_datasource_postvalidation_configbool_5005 {get { return GetParameter(5005); }set { SetParameter(5005, value); }}
+	/// <summary>PID: 5005  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	public System.Object Generic_datasource_postvalidation_configbool {get { return GetParameter(5005); }set { SetParameter(5005, value); }}
 	/// <summary>PID: 10000  | Type: fixed</summary>
 	public System.Object Customer1_dm_directvalidation_titlebegin__fixed {get { return GetParameter(10000); }set { SetParameter(10000, value); }}
-	/// <summary>PID: 10001  | Type: read</summary>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Customer1_dm_directvalidation_configstring_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
-	/// <summary>PID: 10001  | Type: read</summary>
-	public System.Object Customer1_dm_directvalidation_configstring {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	/// <summary>PID: 10001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Customer1_dm_directvalidation_buttontest_10001 {get { return GetParameter(10001); }set { SetParameter(10001, value); }}
+	/// <summary>PID: 10001  | Type: write | DISCREETS: Test = 1</summary>
+	public System.Object Customer1_dm_directvalidation_buttontest {get { return Write.Customer1_dm_directvalidation_buttontest; }set { Write.Customer1_dm_directvalidation_buttontest = value; }}
 	/// <summary>PID: 10002  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Customer1_dm_directvalidation_confignumber_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
+	public System.Object Customer1_dm_directvalidation_configstring_10002 {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
 	/// <summary>PID: 10002  | Type: read</summary>
-	public System.Object Customer1_dm_directvalidation_confignumber {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
-	/// <summary>PID: 10003  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
+	public System.Object Customer1_dm_directvalidation_configstring {get { return GetParameter(10002); }set { SetParameter(10002, value); }}
+	/// <summary>PID: 10003  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Customer1_dm_directvalidation_configdiscreet_10003 {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
-	/// <summary>PID: 10003  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
-	public System.Object Customer1_dm_directvalidation_configdiscreet {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
-	/// <summary>PID: 10004  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	public System.Object Customer1_dm_directvalidation_confignumber_10003 {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
+	/// <summary>PID: 10003  | Type: read</summary>
+	public System.Object Customer1_dm_directvalidation_confignumber {get { return GetParameter(10003); }set { SetParameter(10003, value); }}
+	/// <summary>PID: 10004  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	public System.Object Customer1_dm_directvalidation_configbool_10004 {get { return GetParameter(10004); }set { SetParameter(10004, value); }}
-	/// <summary>PID: 10004  | Type: read | DISCREETS: False = 0, True = 1</summary>
-	public System.Object Customer1_dm_directvalidation_configbool {get { return GetParameter(10004); }set { SetParameter(10004, value); }}
+	public System.Object Customer1_dm_directvalidation_configdiscreet_10004 {get { return GetParameter(10004); }set { SetParameter(10004, value); }}
+	/// <summary>PID: 10004  | Type: read | DISCREETS: Blue = 1, Green = 2, Red = 3</summary>
+	public System.Object Customer1_dm_directvalidation_configdiscreet {get { return GetParameter(10004); }set { SetParameter(10004, value); }}
+	/// <summary>PID: 10005  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	public System.Object Customer1_dm_directvalidation_configbool_10005 {get { return GetParameter(10005); }set { SetParameter(10005, value); }}
+	/// <summary>PID: 10005  | Type: read | DISCREETS: False = 0, True = 1</summary>
+	public System.Object Customer1_dm_directvalidation_configbool {get { return GetParameter(10005); }set { SetParameter(10005, value); }}
 	/// <summary>PID: 9000000  | Type: read</summary>
 	[EditorBrowsable(EditorBrowsableState.Never)]
 	public System.Object Iac_generic_receiver_9000000 {get { return GetParameter(9000000); }set { SetParameter(9000000, value); }}
