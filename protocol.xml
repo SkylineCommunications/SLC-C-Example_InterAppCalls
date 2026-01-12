@@ -47,6 +47,7 @@
 This protocol demonstrates how to expose InterApp calls from an element to other DataMiner components (other elements, automation scripts, etc.).
 
 - Generic pages contain parameters (and corresponding InterApp calls) that enhance the connector in a generic way, meaning that they can be used by any user in any project.
+	All generic InterApp calls should be bundled in a generic InterApp NuGet package.
 	- The 'Generic - DataMiner' page contains example of DataMiner parameters that can be configured via InterApp calls.
 	   By DataMiner parameters, we mean parameters containing data fully managed on the DataMiner side (i.e. not retrieved from the any data-source).
 	   This means that the InterApp executor can pre-validate request, execute it, post-validate the result and send the InterApp response right away.
@@ -56,6 +57,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 	   This will therefore require more logic, buffering, post-validation, etc.
 
 - Customer 1 pages contain parameters (and corresponding InterApp calls) that are only useful for customer 1 and therefore should be included in a dedicated NuGet package.
+	All specific to customer 1 InterApp calls should be bundled in a dedicated to customer 1 InterApp NuGet package.
 	- The 'Customer 1 - DataMiner' page contains example of DataMiner parameters that can be configured via InterApp calls.
 	   These parameters and corresponding InterApp calls are only useful for customer 1.
 					]]>
