@@ -5,52 +5,58 @@ namespace Skyline.Protocol.Tables
 	using System.Collections.Generic;
 	using System.Linq;
 
-	using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.Messages;
+	using Skyline.DataMiner.ConnectorAPI.ExampleInterAppCalls.Messages;
 	using Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle;
 	using Skyline.DataMiner.Core.InterAppCalls.Common.Serializing;
 	using Skyline.DataMiner.Net.Helper;
 	using Skyline.DataMiner.Scripting;
-	using Skyline.DataMiner.Utils.Protocol.Extension;
 
 	using SLNetMessages = Skyline.DataMiner.Net.Messages;
 
 	public enum IAC_MessageStatus
 	{
-		Bufferred = 1,
+		Confirmed = 1,
 		InProgress = 2,
-		Confirmed = 3,
+		Completed = 3,
 	}
 
-	public class IAC_MessagesTableRow
+	public class InterAppMessagesRecord
 	{
-		public IAC_MessagesTableRow() { }
+		public const int NotCompleted = -2;
 
-		public IAC_MessagesTableRow(params object[] row)
+		public InterAppMessagesRecord() { }
+
+		public InterAppMessagesRecord(params object[] row)
 		{
-			Guid = Guid.Parse(Convert.ToString(row[0]));
-			Status = (IAC_MessageStatus)Convert.ToInt32(row[1]);
-			Request = MessageFactory.CreateFromRaw(Convert.ToString(row[2]), Types.KnownTypes);
-			RequestType = Type.GetType(Convert.ToString(row[3]));
-			Response = MessageFactory.CreateFromRaw(Convert.ToString(row[4]), Types.KnownTypes);
-			ResponseType = Type.GetType(Convert.ToString(row[5]));
-			Info = Convert.ToString(row[6]);
+			GUIDIDX = new Guid(Convert.ToString(row[0]));
+			Status = (IAC_MessageStatus)Convert.ToInt16(row[1]);
+			ReceivedAt = DateTime.SpecifyKind(
+				DateTime.FromOADate(Convert.ToDouble(row[2])),
+				DateTimeKind.Utc);
+			CompletedAt = DateTime.SpecifyKind(
+				DateTime.FromOADate(Convert.ToDouble(row[3])),
+				DateTimeKind.Utc);
+
+			var requestRaw = Convert.ToString(row[4]);
+			Request = String.IsNullOrWhiteSpace(requestRaw) ? null : MessageFactory.CreateFromRaw(requestRaw, Types.KnownTypes);
+
+			var responseRaw = Convert.ToString(row[5]);
+			Response = String.IsNullOrWhiteSpace(responseRaw) ? null : MessageFactory.CreateFromRaw(responseRaw, Types.KnownTypes);
 		}
 
-		public Guid Guid { get; set; }
+		public Guid GUIDIDX { get; set; }
 
 		public IAC_MessageStatus Status { get; set; }
 
-		public Message Request { get; set; }
+		public DateTime ReceivedAt { get; set; }
 
-		public Type RequestType { get; set; }
+		public DateTime? CompletedAt { get; set; }
+
+		public Message Request { get; set; }
 
 		public Message Response { get; set; }
 
-		public Type ResponseType { get; set; }
-
-		public string Info { get; set; }
-
-		public static IAC_MessagesTableRow FromPK(SLProtocol protocol, string pk)
+		public static InterAppMessagesRecord FromPK(SLProtocol protocol, string pk)
 		{
 			var row = (object[])protocol.GetRow(Parameter.Iac_messages.tablePid, pk);
 			if (row[0] == null)
@@ -58,95 +64,107 @@ namespace Skyline.Protocol.Tables
 				return default;
 			}
 
-			return new IAC_MessagesTableRow(row);
+			return new InterAppMessagesRecord(row);
+		}
+
+		public static InterAppMessagesRecord CreateFromMessage(Message message)
+		{
+			return new InterAppMessagesRecord
+			{
+				GUIDIDX = new Guid(message.Guid),
+				Status = IAC_MessageStatus.Confirmed,
+				ReceivedAt = DateTime.UtcNow,
+				Request = message,
+			};
 		}
 
 		public object[] ToProtocolRow()
 		{
 			return new Iac_messagesQActionRow
 			{
-				Iac_messagesguid_9000101 = Guid.ToString(),
+				Iac_messagesguid_9000101 = Convert.ToString(GUIDIDX),
 				Iac_messagesstatus_9000102 = (int)Status,
-				Iac_messagesrequest_9000103 = SerializerFactory.CreateInterAppSerializer(new List<Type>()).SerializeToString(Request),
-				Iac_messagesrequesttype_9000104 = RequestType.AssemblyQualifiedName,
-				Iac_messagesresponse_9000105 = SerializerFactory.CreateInterAppSerializer(new List<Type>()).SerializeToString(Response),
-				Iac_messagesresponsetype_9000106 = ResponseType.AssemblyQualifiedName,
-				Iac_messagesinfo_9000107 = Info,
+				Iac_messagesreceivedat_9000103 = ReceivedAt.ToUniversalTime().ToOADate(),
+				Iac_messagescompletedat_9000104 = CompletedAt.HasValue ? CompletedAt.Value.ToUniversalTime().ToOADate() : NotCompleted,
+				Iac_messagesrequest_9000105 = Request is null ? String.Empty : SerializerFactory.CreateInterAppSerializer(new List<Type>()).SerializeToString(Request),
+				Iac_messagesresponse_9000106 = Response is null ? String.Empty : SerializerFactory.CreateInterAppSerializer(new List<Type>()).SerializeToString(Response),
 			};
 		}
 
 		public void SaveToProtocol(SLProtocol protocol)
 		{
-			if (!protocol.Exists(Parameter.Iac_messages.tablePid, Guid.ToString()))
+			if (!protocol.Exists(Parameter.Iac_messages.tablePid, Convert.ToString(GUIDIDX)))
 			{
 				protocol.AddRow(Parameter.Iac_messages.tablePid, ToProtocolRow());
 			}
 			else
 			{
-				protocol.SetRow(Parameter.Iac_messages.tablePid, Guid.ToString(), ToProtocolRow());
+				protocol.SetRow(Parameter.Iac_messages.tablePid, Convert.ToString(GUIDIDX), ToProtocolRow());
 			}
 		}
 	}
 
-	public class IAC_MessagesTable
+	public class InterAppMessagesRecords
 	{
-		public IAC_MessagesTable() { }
+		public InterAppMessagesRecords() { }
 
-		public IAC_MessagesTable(SLProtocol protocol)
+		public InterAppMessagesRecords(SLProtocol protocol)
 		{
 			uint[] iAC_MessagesIdx = new uint[]
 			{
 				Parameter.Iac_messages.Idx.iac_messagesguid_9000101,
 				Parameter.Iac_messages.Idx.iac_messagesstatus_9000102,
-				Parameter.Iac_messages.Idx.iac_messagesrequest_9000103,
-				Parameter.Iac_messages.Idx.iac_messagesrequesttype_9000104,
-				Parameter.Iac_messages.Idx.iac_messagesresponse_9000105,
-				Parameter.Iac_messages.Idx.iac_messagesresponsetype_9000106,
-				Parameter.Iac_messages.Idx.iac_messagesinfo_9000107
+				Parameter.Iac_messages.Idx.iac_messagesreceivedat_9000103,
+				Parameter.Iac_messages.Idx.iac_messagescompletedat_9000104,
+				Parameter.Iac_messages.Idx.iac_messagesrequest_9000105,
+				Parameter.Iac_messages.Idx.iac_messagesresponse_9000106,
 			};
-			object[] iac_messages = (object[])protocol.GetColumns(Parameter.Iac_messages.tablePid, iAC_MessagesIdx);
-			object[] gUIDIDX = (object[])iac_messages[0];
-			object[] status = (object[])iac_messages[1];
-			object[] request = (object[])iac_messages[2];
-			object[] requestType = (object[])iac_messages[3];
-			object[] response = (object[])iac_messages[4];
-			object[] responseType = (object[])iac_messages[5];
-			object[] info = (object[])iac_messages[6];
+			object[] interAppMessages = (object[])protocol.NotifyProtocol((int)SLNetMessages.NotifyType.NT_GET_TABLE_COLUMNS, Parameter.Iac_messages.tablePid, iAC_MessagesIdx);
+			object[] guid = (object[])interAppMessages[0];
+			object[] status = (object[])interAppMessages[1];
+			object[] receivedAtUtc = (object[])interAppMessages[2];
+			object[] completedAtUtc = (object[])interAppMessages[3];
+			object[] request = (object[])interAppMessages[4];
+			object[] response = (object[])interAppMessages[5];
 
-			for (int i = 0; i < gUIDIDX.Length; i++)
+			for (int i = 0; i < guid.Length; i++)
 			{
-				Rows.Add(new IAC_MessagesTableRow(
-				gUIDIDX[i],
+				Rows.Add(new InterAppMessagesRecord(
+				guid[i],
 				status[i],
+				receivedAtUtc[i],
+				completedAtUtc[i],
 				request[i],
-				requestType[i],
-				response[i],
-				responseType[i],
-				info[i]));
+				response[i]));
 			}
 		}
 
-		public List<IAC_MessagesTableRow> Rows { get; set; } = new List<IAC_MessagesTableRow>();
+		public List<InterAppMessagesRecord> Rows { get; set; } = new List<InterAppMessagesRecord>();
 
 		public void SaveToProtocol(SLProtocol protocol, bool partial = false)
 		{
 			// Calculate the batch size, recommended 25000 cells max per fill array, divided by the number of columns.
 			var batchSize = 25000 / 6;
 
-			// If full then the first batch needs to be a SaveOption.Full.
-			var first = !partial;
-			foreach (var batch in Rows.Select(x => x.ToProtocolRow()).Batch(batchSize))
+			// When full updating and the Rows are empty, clear the table.
+			if (!Rows.Any() && !partial)
 			{
-				if (first)
-				{
-					protocol.FillArray(Parameter.Iac_messages.tablePid, batch.ToList(), NotifyProtocol.SaveOption.Full);
-				}
-				else
-				{
-					protocol.FillArray(Parameter.Iac_messages.tablePid, batch.ToList(), NotifyProtocol.SaveOption.Partial);
-				}
+				protocol.ClearAllKeys(Parameter.Iac_messages.tablePid);
+				return;
 			}
+
+			// Always update rows with partial updates to avoid alarm recreation and other DM load
+			var rowObjectArray = Rows.Select(x => x.ToProtocolRow());
+			foreach (var batch in rowObjectArray.Batch(batchSize))
+			{
+				protocol.FillArray(Parameter.Iac_messages.tablePid, batch.ToList(), NotifyProtocol.SaveOption.Partial);
+			}
+
+
+			// If full then we need to check for any rows that are no longer present and delete them.
+			var keys = protocol.GetKeys(Parameter.Iac_messages.tablePid);
+			var updatedKeys = rowObjectArray.Select(x => Convert.ToString(x[0]));
+			protocol.DeleteRow(Parameter.Iac_messages.tablePid, keys.Except(updatedKeys).ToArray());
 		}
 	}
 }
-

@@ -1,8 +1,5 @@
 using System;
-using System.Linq;
 
-using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.Messages;
-using Skyline.DataMiner.Core.DataMinerSystem.Protocol;
 using Skyline.DataMiner.Scripting;
 
 /// <summary>
@@ -10,19 +7,19 @@ using Skyline.DataMiner.Scripting;
 /// </summary>
 public static class QAction
 {
-    /// <summary>
-    /// The QAction entry point.
-    /// </summary>
-    /// <param name="protocol">Link with SLProtocol process.</param>
-    public static void Run(SLProtocol protocol)
-    {
-        try
-        {
+	/// <summary>
+	/// The QAction entry point.
+	/// </summary>
+	/// <param name="protocol">Link with SLProtocol process.</param>
+	public static void Run(SLProtocol protocol)
+	{
+		try
+		{
 			// Add here logic that should be executed at element startup.
 		}
 		catch (Exception ex)
-        {
-            protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
-        }
-    }
+		{
+			protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
+		}
+	}
 }

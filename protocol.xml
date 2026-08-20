@@ -17,11 +17,11 @@
 	<SNMP includepages="true">auto</SNMP>
 	<ElementType>Example</ElementType>
 	<Type relativeTimers="true">virtual</Type>
-	<Display defaultPage="General" pageOrder="General;----------;Generic - DataMiner;Generic - DataSource;----------;Customer 1 - DataMiner;----------;Inter-App Communication" wideColumnPages="General"/>
+	<Display defaultPage="General" pageOrder="General;----------;Generic - DataMiner;Generic - Datasource;----------;Customer 1 - DataMiner;----------;Inter-App Communication" wideColumnPages="General"/>
 
 	<Compliancies>
 		<CassandraReady>true</CassandraReady>
-		<MinimumRequiredVersion>10.3.0.0 - 12752</MinimumRequiredVersion>
+		<MinimumRequiredVersion>10.4.0.0 - 14003</MinimumRequiredVersion>
 	</Compliancies>
 
 	<Params>
@@ -30,7 +30,7 @@
 			<Description>After startup</Description>
 			<Type>dummy</Type>
 		</Param>
-		
+
 		<Param id="9" trending="false">
 			<Name>ReadMe</Name>
 			<Description>Read Me</Description>
@@ -51,7 +51,7 @@ This protocol demonstrates how to expose InterApp calls from an element to other
 	- The 'Generic - DataMiner' page contains example of DataMiner parameters that can be configured via InterApp calls.
 	   By DataMiner parameters, we mean parameters containing data fully managed on the DataMiner side (i.e. not retrieved from the any data-source).
 	   This means that the InterApp executor can pre-validate request, execute it, post-validate the result and send the InterApp response right away.
-	- The 'Generic - DataSource' page contains examples of data-source parameters that can be configured via InterApp calls.
+	- The 'Generic - Datasource' page contains examples of data-source parameters that can be configured via InterApp calls.
 	   By data-source parameters, we mean parameters containing data retrieved from a data-source.
 	   This means that the InterApp executor will first pre-validate the request, execute it by sending the new configuration to the data-source, wait for the new data to come in from data-source to DataMiner and only then it can do the result post-validation and send InterApp response accordingly.
 	   This will therefore require more logic, buffering, post-validation, etc.
@@ -79,7 +79,7 @@ For each InterApp call exposed by this protocol, there is also a Test button to 
 				<Type lines="50">string</Type>
 			</Measurement>
 		</Param>
-		
+
 		<!-- Generic DataMiner parameters (InterApp with direct validation & execution) -->
 		<Param id="1000">
 			<Name>Generic_DM_DirectValidation_TitleBegin</Name>
@@ -214,15 +214,15 @@ For each InterApp call exposed by this protocol, there is also a Test button to 
 				<Discreets>
 					<Discreet>
 						<Display>Blue</Display>
-						<Value>1</Value>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
 						<Display>Green</Display>
-						<Value>2</Value>
+						<Value>1</Value>
 					</Discreet>
 					<Discreet>
 						<Display>Red</Display>
-						<Value>3</Value>
+						<Value>2</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -263,17 +263,17 @@ For each InterApp call exposed by this protocol, there is also a Test button to 
 				</Discreets>
 			</Measurement>
 		</Param>
-		
+
 		<!-- Generic Data-Source parameters (InterApp with pre and post validation) -->
 		<Param id="5000">
-			<Name>Generic_DataSource_PostValidation_TitleBegin</Name>
-			<Description>Generic - DataSource - Post Validation</Description>
+			<Name>Generic_Datasource_PostValidation_TitleBegin</Name>
+			<Description>Generic - Datasource - Post Validation</Description>
 			<Type>fixed</Type>
 			<Display>
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Generic - DataSource</Page>
+						<Page>Generic - Datasource</Page>
 						<Column>0</Column>
 						<Row>0</Row>
 					</Position>
@@ -284,7 +284,7 @@ For each InterApp call exposed by this protocol, there is also a Test button to 
 			</Measurement>
 		</Param>
 		<Param id="5001">
-			<Name>Generic_DataSource_PostValidation_ButtonTest</Name>
+			<Name>Generic_Datasource_PostValidation_ButtonTest</Name>
 			<Type>write</Type>
 			<Information>
 				<Subtext>Allows to demonstrate how to call the InterAppCall directly from within the exposing element.</Subtext>
@@ -298,7 +298,7 @@ For each InterApp call exposed by this protocol, there is also a Test button to 
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Generic - DataSource</Page>
+						<Page>Generic - Datasource</Page>
 						<Column>0</Column>
 						<Row>5</Row>
 					</Position>
@@ -315,8 +315,8 @@ For each InterApp call exposed by this protocol, there is also a Test button to 
 			</Measurement>
 		</Param>
 		<Param id="5002" trending="false">
-			<Name>Generic_DataSource_PostValidation_ConfigString</Name>
-			<Description>String Config (Generic - DataSource - Post Validation)</Description>
+			<Name>Generic_Datasource_PostValidation_ConfigString</Name>
+			<Description>String Config (Generic - Datasource - Post Validation)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>
@@ -333,7 +333,7 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Generic - DataSource</Page>
+						<Page>Generic - Datasource</Page>
 						<Column>0</Column>
 						<Row>1</Row>
 					</Position>
@@ -344,8 +344,8 @@ The InterApp executor will proceed with pre-validation and execution but will st
 			</Measurement>
 		</Param>
 		<Param id="5003" trending="false">
-			<Name>Generic_DataSource_PostValidation_ConfigNumber</Name>
-			<Description>Number Config (Generic - DataSource - Post Validation)</Description>
+			<Name>Generic_Datasource_PostValidation_ConfigNumber</Name>
+			<Description>Number Config (Generic - Datasource - Post Validation)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>
@@ -367,7 +367,7 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				</Range>
 				<Positions>
 					<Position>
-						<Page>Generic - DataSource</Page>
+						<Page>Generic - Datasource</Page>
 						<Column>0</Column>
 						<Row>2</Row>
 					</Position>
@@ -378,8 +378,8 @@ The InterApp executor will proceed with pre-validation and execution but will st
 			</Measurement>
 		</Param>
 		<Param id="5004" trending="false">
-			<Name>Generic_DataSource_PostValidation_ConfigDiscreet</Name>
-			<Description>Discreet Config (Generic - DataSource - Post Validation)</Description>
+			<Name>Generic_Datasource_PostValidation_ConfigDiscreet</Name>
+			<Description>Discreet Config (Generic - Datasource - Post Validation)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>
@@ -396,7 +396,7 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Generic - DataSource</Page>
+						<Page>Generic - Datasource</Page>
 						<Column>0</Column>
 						<Row>3</Row>
 					</Position>
@@ -421,8 +421,8 @@ The InterApp executor will proceed with pre-validation and execution but will st
 			</Measurement>
 		</Param>
 		<Param id="5005" trending="false">
-			<Name>Generic_DataSource_PostValidation_ConfigBool</Name>
-			<Description>Boolean Config (Generic - DataSource - Post Validation)</Description>
+			<Name>Generic_Datasource_PostValidation_ConfigBool</Name>
+			<Description>Boolean Config (Generic - Datasource - Post Validation)</Description>
 			<Type>read</Type>
 			<Information>
 				<Subtext>
@@ -439,7 +439,7 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				<RTDisplay>true</RTDisplay>
 				<Positions>
 					<Position>
-						<Page>Generic - DataSource</Page>
+						<Page>Generic - Datasource</Page>
 						<Column>0</Column>
 						<Row>4</Row>
 					</Position>
@@ -459,7 +459,22 @@ The InterApp executor will proceed with pre-validation and execution but will st
 				</Discreets>
 			</Measurement>
 		</Param>
-		
+		<Param id="5006">
+			<Name>Generic_Datasource_PostValidation_SimulatedProcess</Name>
+			<Description>Simulated Process (Generic - Datasource - Post Validation)</Description>
+			<Type>dummy</Type>
+		</Param>
+		<Param id="5007">
+			<Name>Generic_Datasource_PostValidation_SimulatedMessage</Name>
+			<Description>Simulated Message (Generic - Datasource - Post Validation)</Description>
+			<Type>read</Type>
+			<Interprete>
+				<RawType>other</RawType>
+				<Type>string</Type>
+				<LengthType>next param</LengthType>
+			</Interprete>
+		</Param>
+
 		<!-- Customer 1 specific parameters (InterApp only useful for customer 1) -->
 		<Param id="10000">
 			<Name>Customer1_DM_DirectValidation_TitleBegin</Name>
@@ -603,15 +618,15 @@ Therfore, corresponding InterApp calls will be bundled in a customer 1 dedicated
 				<Discreets>
 					<Discreet>
 						<Display>Blue</Display>
-						<Value>1</Value>
+						<Value>0</Value>
 					</Discreet>
 					<Discreet>
 						<Display>Green</Display>
-						<Value>2</Value>
+						<Value>1</Value>
 					</Discreet>
 					<Discreet>
 						<Display>Red</Display>
-						<Value>3</Value>
+						<Value>2</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
@@ -655,7 +670,7 @@ Therfore, corresponding InterApp calls will be bundled in a customer 1 dedicated
 				</Discreets>
 			</Measurement>
 		</Param>
-		
+
 		<!-- InterApp parameters -->
 		<Param id="9000000" trending="false">
 			<Name>IAC_Generic_Receiver</Name>
@@ -773,7 +788,12 @@ This responder will be used for InterApp calls specific to project 1 of customer
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		
+
+		<Param id="9000099">
+			<Name>IAC_Messages_ExecuteNext</Name>
+			<Description>Inter-App Messages Execute Next</Description>
+			<Type>dummy</Type>
+		</Param>
 		<Param id="9000100">
 			<Name>IAC_Messages</Name>
 			<Description>Inter-App Messages</Description>
@@ -785,7 +805,6 @@ This responder will be used for InterApp calls specific to project 1 of customer
 				<ColumnOption idx="3" pid="9000104" type="retrieved" options="" />
 				<ColumnOption idx="4" pid="9000105" type="retrieved" options="" />
 				<ColumnOption idx="5" pid="9000106" type="retrieved" options="" />
-				<ColumnOption idx="6" pid="9000107" type="retrieved" options="" />
 			</ArrayOptions>
 			<Information>
 				<Subtext>This table contains the list of received InterApp calls which are currently being processed.</Subtext>
@@ -801,7 +820,7 @@ This responder will be used for InterApp calls specific to project 1 of customer
 				</Positions>
 			</Display>
 			<Measurement>
-				<Type options="tab=columns:9000101|0-9000102|1-9000103|2-9000104|3-9000105|4-9000106|5,width:200-200-100-109-100-109,sort:STRING-STRING-STRING-STRING-STRING-STRING,lines:25,filter:true">table</Type>
+				<Type options="tab=columns:9000101|0-9000102|1-9000103|2-9000104|3-9000105|4-9000106|5,width:200-200-156-156-100-100,sort:STRING-STRING-STRING|ASC-STRING-STRING-STRING,lines:25,filter:true">table</Type>
 			</Measurement>
 		</Param>
 		<Param id="9000101" trending="false">
@@ -845,7 +864,7 @@ It corresponds to the GUID of the coming in Inter-App Request Message.]]>
 				<Type>discreet</Type>
 				<Discreets>
 					<Discreet>
-						<Display>Buffered</Display>
+						<Display>Confirmed</Display>
 						<Value>1</Value>
 					</Discreet>
 					<Discreet>
@@ -853,13 +872,61 @@ It corresponds to the GUID of the coming in Inter-App Request Message.]]>
 						<Value>2</Value>
 					</Discreet>
 					<Discreet>
-						<Display>Confirmed</Display>
+						<Display>Completed</Display>
 						<Value>3</Value>
 					</Discreet>
 				</Discreets>
 			</Measurement>
 		</Param>
 		<Param id="9000103" trending="false">
+			<Name>IAC_MessagesReceivedAt</Name>
+			<Description>Received at UTC (Inter-App Messages)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The timestamp when the interapp message was received.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Decimals>8</Decimals>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Decimals>8</Decimals>
+			</Display>
+			<Measurement>
+				<Type options="datetime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="9000104" trending="false">
+			<Name>IAC_MessagesCompletedAt</Name>
+			<Description>Completed at UTC (Inter-App Messages)</Description>
+			<Type>read</Type>
+			<Information>
+				<Subtext>The timestamp when the interapp message was completed.</Subtext>
+			</Information>
+			<Interprete>
+				<RawType>numeric text</RawType>
+				<Type>double</Type>
+				<LengthType>next param</LengthType>
+				<Decimals>8</Decimals>
+				<Exceptions>
+					<Exception id="2" value="-2">
+						<Display state="disabled">Not Completed</Display>
+						<Value>-2</Value>
+					</Exception>
+				</Exceptions>
+			</Interprete>
+			<Display>
+				<RTDisplay>true</RTDisplay>
+				<Decimals>8</Decimals>
+			</Display>
+			<Measurement>
+				<Type options="datetime">number</Type>
+			</Measurement>
+		</Param>
+		<Param id="9000105" trending="false">
 			<Name>IAC_MessagesRequest</Name>
 			<Description>Request (Inter-App Messages)</Description>
 			<Type>read</Type>
@@ -881,26 +948,7 @@ This is there for debugging purposes, it is not really used by the connector log
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="9000104" trending="false">
-			<Name>IAC_MessagesRequestType</Name>
-			<Description>Request Type (Inter-App Messages)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>This is the type of the request message from the InterApp Call.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<RTDisplay>true</RTDisplay>
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="9000105" trending="false">
+		<Param id="9000106" trending="false">
 			<Name>IAC_MessagesResponse</Name>
 			<Description>Response (Inter-App Messages)</Description>
 			<Information>
@@ -919,63 +967,16 @@ This is there for debugging purposes, it is not really used by the connector log
 				<Type>string</Type>
 			</Measurement>
 		</Param>
-		<Param id="9000106" trending="false">
-			<Name>IAC_MessagesResponseType</Name>
-			<Description>Response Type (Inter-App Messages)</Description>
-			<Information>
-				<Subtext>This is the type of the response message for the InterApp Call. This type is used to know what return messages needs to be made.</Subtext>
-			</Information>
-			<Type>read</Type>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<!-- SuppressValidator 2.9.7 No unit required for identifiers -->
-			<Display>
-				<RTDisplay>true</RTDisplay>
-				<Range>
-					<Low>0</Low>
-				</Range>
-			</Display>
-			<!-- /SuppressValidator 2.9.7 -->
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
-		<Param id="9000107" trending="false">
-			<Name>IAC_MessagesInfo</Name>
-			<Description>Info (Inter-App Messages)</Description>
-			<Type>read</Type>
-			<Information>
-				<Subtext>Extra info used to match incoming responses with the InterApp message.</Subtext>
-			</Information>
-			<Interprete>
-				<RawType>other</RawType>
-				<Type>string</Type>
-				<LengthType>next param</LengthType>
-			</Interprete>
-			<Display>
-				<!-- SuppressValidator 2.7.5 Used for Inter-App communication -->
-				<RTDisplay>true</RTDisplay>
-				<!-- /SuppressValidator 2.7.5 -->
-			</Display>
-			<Measurement>
-				<Type>string</Type>
-			</Measurement>
-		</Param>
 	</Params>
 
 	<QActions>
 		<QAction id="1" name="Precompiled Code" encoding="csharp" options="precompile" />
 		<QAction id="2" name="After Startup QAction" encoding="csharp" triggers="2" />
 
-		<QAction id="10" name="Mark rows as confirmed" encoding="csharp" triggers="10" />
+		<QAction id="10" name="Test Buttons" encoding="csharp" triggers="1001;5001;10001" />
+		<QAction id="11" name ="Simulate Datasource Processing" encoding="csharp" triggers="5006"/>
 
-		<QAction id="1000" name="Send InterApp Message" encoding="csharp" triggers="1000" />
-		<QAction id="1990" name="My Table - ContextMenu" encoding="csharp" triggers="1990" />
-
-		<QAction id="9000000" name="Process Incoming InterApp Messages" encoding="csharp" triggers="9000000" />
+		<QAction id="9000000" name="Process Incoming InterApp Messages" encoding="csharp" triggers="9000000;9000099" />
 	</QActions>
 
 	<Groups>
@@ -985,6 +986,15 @@ This is there for debugging purposes, it is not really used by the connector log
 			<Type>poll action</Type>
 			<Content>
 				<Action>2</Action>
+			</Content>
+		</Group>
+
+		<Group id="10">
+			<Name>Simulate Datasource Operation</Name>
+			<Description>Simulate Datasource Operation</Description>
+			<Type>poll action</Type>
+			<Content>
+				<Action>11</Action>
 			</Content>
 		</Group>
 	</Groups>
@@ -1011,6 +1021,23 @@ This is there for debugging purposes, it is not really used by the connector log
 			<Name>After Startup QAction</Name>
 			<Type>run actions</Type>
 			<On id="2">parameter</On>
+		</Action>
+
+		<Action id="10">
+			<Name>Simulate Datasource Operation</Name>
+			<On id="10">group</On>
+			<Type>execute next</Type>
+		</Action>
+		<Action id="11">
+			<Name>Simulate Datasource Processing</Name>
+			<On id="5006">parameter</On>
+			<Type>run actions</Type>
+		</Action>
+
+		<Action id="9000099">
+			<Name>Execute Next Inter-App Message</Name>
+			<On id="9000099">parameter</On>
+			<Type>run actions</Type>
 		</Action>
 	</Actions>
 

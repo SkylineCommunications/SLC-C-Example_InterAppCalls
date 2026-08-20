@@ -1,12 +1,12 @@
 using System;
-using System.Linq;
 
-using Newtonsoft.Json;
-
-using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.InterAppMessages;
-using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.Messages;
-using Skyline.DataMiner.ConnectorAPI.SkylineCommunications.ExampleInterAppCalls.Messages.MyTable;
+using Skyline.DataMiner.ConnectorAPI.ExampleInterAppCalls.InterAppMessages;
+using Skyline.DataMiner.ConnectorAPI.ExampleInterAppCalls.InterAppMessages.GenericDataMiner;
+using Skyline.DataMiner.ConnectorAPI.ExampleInterAppCalls.InterAppMessages.GenericDataSource;
+using Skyline.DataMiner.ConnectorAPI.ExampleInterAppCalls.Messages;
+using Skyline.DataMiner.Core.InterAppCalls.Common.CallSingle;
 using Skyline.DataMiner.Scripting;
+using Skyline.Protocol.InterApp;
 using Skyline.Protocol.Tables;
 
 /// <summary>
@@ -23,55 +23,108 @@ public static class QAction
 	{
 		try
 		{
-			/* Get simulated device response.
-			 * which in our case is just the same message we send out, but would normally be a response on a command.
-			 * for example the response of a HTTP Post request.
-			 */
-			var raw = Convert.ToString(protocol.GetParameter(Parameter.commandbody));
-			if (String.IsNullOrEmpty(raw))
+			switch (protocol.GetTriggerParameter())
 			{
-				return;
+				case Parameter.Write.generic_dm_directvalidation_buttontest_1001:
+					protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Triggered by generic_dm_directvalidation_buttontest_1001", LogType.Information, LogLevel.NoLogging);
+					GenericDataMiner(protocol);
+					break;
+
+				case Parameter.Write.generic_datasource_postvalidation_buttontest_5001:
+					protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Triggered by generic_datasource_postvalidation_buttontest_5001", LogType.Information, LogLevel.NoLogging);
+					GenericDataSource(protocol);
+					break;
+
+				case Parameter.Write.customer1_dm_directvalidation_buttontest_10001:
+					protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Triggered by customer1_dm_directvalidation_buttontest_10001", LogType.Information, LogLevel.NoLogging);
+					break;
+
+				default:
+					protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Triggered by unknown parameter", LogType.Error, LogLevel.NoLogging);
+					break;
 			}
-
-			var response = JsonConvert.DeserializeObject<MyTableData>(raw);
-
-			// Add the row to the table, just like you normally would.
-			var row = new MyTableRow
-			{
-				Instance = response.Instance,
-				MyNumericColumn = response.MyNumericColumn.GetValueOrDefault(0),
-				MyStringColumn = response.MyStringColumn,
-				MyDiscreetColumn = response.MyDiscreetColumn.GetValueOrDefault(DiscreetColumnOption.Discreet1),
-			};
-
-			protocol.AddRow(Parameter.Mytable.tablePid, row.ToProtocolRow());
-
-			// Check the InterApp Table for messages that still need a response
-			// Get all the buffered InterApp Messages that are connected to the DelayedCreateExampleRow call, the other ones are for other tables.
-			var iapBuffer = new IAC_MessagesTable(protocol);
-			var iapBufferRow = iapBuffer.Rows
-				.Where(message => message.ResponseType == typeof(GenericInterAppMessage<DelayedCreateExampleRowResult>))
-				.FirstOrDefault(message => message.Info == row.Instance);
-
-			if (iapBufferRow == null)
-			{
-				// Found no message that was waiting on this response
-				return;
-			}
-
-			// Get the already partially build response, and complete it.
-			var iapResponse = iapBufferRow.Response as GenericInterAppMessage<DelayedCreateExampleRowResult>;
-			iapResponse.Data.Success = true;
-			iapResponse.Data.Description = "Successfully created a new MyTable example row.";
-
-			// Reply to the InterApp Message, and mark this row completed.
-			iapBufferRow.Request.Reply(protocol.SLNet.RawConnection, iapResponse, Types.KnownTypes);
-			iapBufferRow.Status = IAC_MessageStatus.Confirmed;
-			iapBuffer.SaveToProtocol(protocol);
 		}
 		catch (Exception ex)
 		{
 			protocol.Log($"QA{protocol.QActionID}|{protocol.GetTriggerParameter()}|Run|Exception thrown:{Environment.NewLine}{ex}", LogType.Error, LogLevel.NoLogging);
 		}
+	}
+
+	private static void GenericDataMiner(SLProtocol protocol)
+	{
+		var rnd = new Random();
+
+		// String
+		var stringInterApp = new GenericInterAppMessage<DataMinerStringConfigRequest>(
+			new DataMinerStringConfigRequest
+			{
+				Config = $"Hello from InterApp with random double {rnd.NextDouble()}",
+			});
+		stringInterApp.TryExecute(protocol, protocol, Mapping.InternalMessageToExecutorMapping, out var stringReturnMessage);
+
+		// Number
+		var numberInterApp = new GenericInterAppMessage<DataMinerNumberConfigRequest>(
+			new DataMinerNumberConfigRequest
+			{
+				Config = rnd.Next(0, 101), // Upper bounds is exclusive, so 101 is used to include 100.
+			});
+		numberInterApp.TryExecute(protocol, protocol, Mapping.InternalMessageToExecutorMapping, out var numberReturnMessage);
+
+		// Discreet
+		var discreetInterApp = new GenericInterAppMessage<DataMinerDiscreetConfigRequest>(
+			new DataMinerDiscreetConfigRequest
+			{
+				Config = (DataMinerDiscreet)rnd.Next(0, 3),
+			});
+		discreetInterApp.TryExecute(protocol, protocol, Mapping.InternalMessageToExecutorMapping, out var discreetReturnMessage);
+
+		// Boolean
+		var booleanInterApp = new GenericInterAppMessage<DataMinerBooleanConfigRequest>(
+			new DataMinerBooleanConfigRequest
+			{
+				Config = rnd.Next(0, 2) == 0,
+			});
+		booleanInterApp.TryExecute(protocol, protocol, Mapping.InternalMessageToExecutorMapping, out var booleanReturnMessage);
+	}
+
+	private static void GenericDataSource(SLProtocol protocol)
+	{
+		var rnd = new Random();
+
+		// String
+		var stringInterApp = new GenericInterAppMessage<DataSourceStringConfigRequest>(
+			new DataSourceStringConfigRequest
+			{
+				Config = $"Hello from InterApp with random double {rnd.NextDouble()}",
+			});
+		InterAppMessagesRecord.CreateFromMessage(stringInterApp).SaveToProtocol(protocol);
+		stringInterApp.TryExecute(protocol, protocol, Mapping.InternalMessageToExecutorMapping, out var stringReturnMessage);
+
+		// Number
+		var numberInterApp = new GenericInterAppMessage<DataSourceNumberConfigRequest>(
+			new DataSourceNumberConfigRequest
+			{
+				Config = rnd.Next(0, 101), // Upper bounds is exclusive, so 101 is used to include 100.
+			});
+		InterAppMessagesRecord.CreateFromMessage(numberInterApp).SaveToProtocol(protocol);
+		numberInterApp.TryExecute(protocol, protocol, Mapping.InternalMessageToExecutorMapping, out var numberReturnMessage);
+
+		// Discreet
+		var discreetInterApp = new GenericInterAppMessage<DataSourceDiscreetConfigRequest>(
+			new DataSourceDiscreetConfigRequest
+			{
+				Config = (DataSourceDiscreet)rnd.Next(0, 3),
+			});
+		InterAppMessagesRecord.CreateFromMessage(discreetInterApp).SaveToProtocol(protocol);
+		discreetInterApp.TryExecute(protocol, protocol, Mapping.InternalMessageToExecutorMapping, out var discreetReturnMessage);
+
+		// Boolean
+		var booleanInterApp = new GenericInterAppMessage<DataSourceBooleanConfigRequest>(
+			new DataSourceBooleanConfigRequest
+			{
+				Config = rnd.Next(0, 2) == 0,
+			});
+		InterAppMessagesRecord.CreateFromMessage(booleanInterApp).SaveToProtocol(protocol);
+		booleanInterApp.TryExecute(protocol, protocol, Mapping.InternalMessageToExecutorMapping, out var booleanReturnMessage);
 	}
 }
